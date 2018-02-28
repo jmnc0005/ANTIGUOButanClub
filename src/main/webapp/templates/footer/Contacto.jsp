@@ -24,7 +24,7 @@
 
         <div class="row justify-content-center">
             <div class="col-lg-8 ">
-                <div class="box class="centrar-contenido">
+                <div class="box centrar-contenido">
                     
                        
                         <%if (request.getParameter("contactar") == null) {%>

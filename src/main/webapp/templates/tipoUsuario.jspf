@@ -1,0 +1,16 @@
+<%-- any content can be specified here e.g.: --%>
+<%@ page pageEncoding="UTF-8" %>
+<form>
+    <div>
+        <input type="radio" id="no-registrado" name="posible-usuario" value="No Registrado">  
+        <label for="no-registrado">No Registrado</label>
+        <input type="radio" id="registrado" name="posible-usuario" value="Registrado">  
+        <label for="registrado">Registrado</label>
+        <input type="radio" id="artista" name="posible-usuario" value="Artista">  
+        <label for="artista">artista</label>
+        <input type="radio" id="administrador" name="posible-usuario" value="Administrador">  
+        <label for="administrador">administrador</label>
+   
+        <input type="submit" name="tipoUsuario" value="Enviar">
+    </div>
+</form>

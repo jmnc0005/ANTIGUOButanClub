@@ -31,6 +31,12 @@ body{
     background-color: goldenrod;
     border: 1px goldenrod ridge;
 }
+label{
+    margin-bottom: 0;
+}
+input{
+    margin-bottom: 0.5em;
+}
 
 .centrar-contenido{
     display: flex;
@@ -52,6 +58,22 @@ a{
 a:hover{
     color:goldenrod;
 }
+
+
+article, input, textarea{
+    font-family: serif !important;
+}article a{
+    color: #52344c;
+}
+
+
+
+/********
+*********
+*********HEADER*********
+               *********
+               ********/
+
 
 .redes-sociales{
     line-height: 2em;

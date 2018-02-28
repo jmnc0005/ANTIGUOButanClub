@@ -1,0 +1,65 @@
+<%-- any content can be specified here e.g.: --%>
+<%@ page pageEncoding="UTF-8" %>
+<div class="row justify-content-center">
+    <div class=" concierto col-md-4" >
+        <div class="">
+            <img src="imagenes/conciertos/concierto1.jpg" width="100%">
+        </div>
+        <div class=" centrar-contenido">
+            <div>
+
+                <p>La banda del Recreo</p>
+                <br>
+                Precio: 10.00€
+                <br>
+                Día: 22/03/2018  <br>  Hora:21:00
+                <br>
+                <form action="comprar-entrada.jsp" method="post">
+                    <input type="text" name="concierto" hidden value="concierto1">
+                    <input class="btn btn-primary" type="submit" name="compra" value="Comprar Entrada">
+                </form>
+
+            </div>
+        </div>
+    </div>
+    <div class=" concierto col-md-4" >
+        <div class="">
+            <img src="imagenes/conciertos/concierto2.jpg" width="100%">
+        </div>
+        <div class=" centrar-contenido">
+            <div class="justify-content-center">
+
+                <p>Cantando hasta la muerte</p>
+                <br>Precio: 12.00€
+                <br>
+                Día: 01/07/2018 <br>   Hora:12:00
+                <br>
+                <form method="post">
+                    <input type="text" name="concierto" hidden value="concierto2">
+                    <input class="btn btn-primary" type="submit" name="compra" value="Comprar Entrada">
+                </form>
+
+            </div>
+        </div>
+    </div>
+    <div class=" concierto col-md-4" >
+        <div class="">
+            <img src="imagenes/conciertos/concierto3.jpg" width="100%">
+        </div>
+        <div class=" centrar-contenido">
+            <div>
+
+                <p>Ecos de un sonido</p>
+                <br>Precio: 8.00€
+                <br>
+                Día: 20/04/2018  <br>  Hora:21:00
+                <br>
+                <form method="post">
+                    <input type="text" name="concierto" hidden value="concierto3">
+                    <input class="btn btn-primary" type="submit" name="compra" value="Comprar Entrada">
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>

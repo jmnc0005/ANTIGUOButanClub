@@ -62,11 +62,19 @@
         <%if (posibleUsuario.equals("Administrador")) {%>
         <div class="box">
             <%-- informacion de administradoes gestionar conciertos --%>
-            gestion concierto
+            <div class="row centrar-contenido">
+                <h2>Gestión de conciertos</h2>
+            </div>
+            
+            <%@include file="templates/modulos/gestion-conciertos.jspf" %>  
         </div>
         <div class="box">
             <%-- informacion de administradoes gestionar usuarios --%>
-            gestion usuarios
+             <div class="row centrar-contenido">
+                <h2>Gestión de usuarios</h2>
+            </div>
+            
+            <%@include file="templates/modulos/gestion-usuarios.jspf" %>  
         </div>
         <%}%>
         <%}%>

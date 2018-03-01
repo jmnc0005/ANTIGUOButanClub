@@ -8,28 +8,58 @@
                 <th>Precio</th>
                 <th>Día</th>
                 <th>Hora</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
+            
+            <%if (request.getParameter("borrar-con-1") == null) {%>
             <tr>
                 <td>La Banda del Recreo</td>
                 <td>10.00 €</td>
                 <td>22/03/2018</td>
                 <td>21:00</td>
+                <td>
+                    <form>
+                        <input type="text" hidden name="posible-usuario" value="Administrador">
+                        <input type="text" hidden name="tipoUsuario" value="Enviar">
+                        <input type="submit" class="button btn-primary" name="borrar-con-2" value="Borrar">
+                    </form>
+                </td>
             </tr>
+            
+            <%}%>
+            <%if (request.getParameter("borrar-con-2") == null) {%>
             <tr>
                 <td>Cantando hasta la muerte</td>
                 <td>11.00 €</td>
                 <td>01/07/2018</td>
                 <td>12:00</td>
+                <td>
+                    <form>
+                        <input type="text" hidden name="posible-usuario" value="Administrador">
+                        <input type="text" hidden name="tipoUsuario" value="Enviar">
+                        <input type="submit" class="button btn-primary" name="borrar-con-2" value="Borrar">
+                    </form>
+                </td>
             </tr>
+            
+            <%}%>
+            <%if (request.getParameter("borrar-con-3") == null) {%>
             <tr>
                 <td>Ecos de un sonido</td>
                 <td>8.00 €</td>
                 <td>20/04/2018</td>
                 <td>21:00</td>
+                <td>
+                    <form>
+                        <input type="text" hidden name="posible-usuario" value="Administrador">
+                        <input type="text" hidden name="tipoUsuario" value="Enviar">
+                        <input type="submit" class="button btn-primary" name="borrar-con-2" value="Borrar">
+                    </form>
+                </td>
             </tr>
-
+            <%}%>
         </tbody>
     </table>
 </div>

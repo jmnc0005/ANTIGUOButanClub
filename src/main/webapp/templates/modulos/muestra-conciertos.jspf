@@ -5,7 +5,7 @@
         <div class="">
             <img src="imagenes/conciertos/concierto1.jpg" width="100%">
         </div>
-        <div class=" centrar-contenido">
+        <div class=" centrar-contenido info-concierto">
             <div>
 
                 <p>La banda del Recreo</p>
@@ -26,7 +26,7 @@
         <div class="">
             <img src="imagenes/conciertos/concierto2.jpg" width="100%">
         </div>
-        <div class=" centrar-contenido">
+        <div class=" centrar-contenido info-concierto">
             <div class="justify-content-center">
 
                 <p>Cantando hasta la muerte</p>
@@ -46,7 +46,7 @@
         <div class="">
             <img src="imagenes/conciertos/concierto3.jpg" width="100%">
         </div>
-        <div class=" centrar-contenido">
+        <div class=" centrar-contenido info-concierto">
             <div>
 
                 <p>Ecos de un sonido</p>

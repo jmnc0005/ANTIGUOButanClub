@@ -24,7 +24,7 @@
         <div class="box">
 
             <%-- saludo --%>
-            <div class="row justify-content-center">
+            <div class="row centrar-contenido">
                 <div class="col-lg-8 ">
                     Nombre: 
                     <%= request.getParameter("nombre")%>
@@ -46,23 +46,29 @@
         </div>
         <%if (request.getParameter("tipoUsuario") != null) {%>
         <%String posibleUsuario = request.getParameter("posible-usuario");%>
-        <%= posibleUsuario %>
-            <%if (posibleUsuario.equals("Artista")) {%>
-                <div class="box">
-                    <%-- informacion de artistas --%>
-                    solicitar sala
-                </div>
-            <%}%>
-            <%if (posibleUsuario.equals("Administrador")) {%>
-                <div class="box">
-                    <%-- informacion de administradoes gestionar conciertos --%>
-                    gestion concierto
-                </div>
-                <div class="box">
-                    <%-- informacion de administradoes gestionar usuarios --%>
-                    gestion usuarios
-                </div>
-            <%}%>
+
+        <%if (posibleUsuario.equals("Artista")) {%>
+        <div class="box">
+            <%-- informacion de artistas --%>
+            <DIV class="row centrar-contenido">
+                <h2>Solicitar sala</h2>
+            </DIV>
+            <%@include file="templates/modulos/solicitar-sala.jspf" %>                          
+
+
+
+        </div>
+        <%}%>
+        <%if (posibleUsuario.equals("Administrador")) {%>
+        <div class="box">
+            <%-- informacion de administradoes gestionar conciertos --%>
+            gestion concierto
+        </div>
+        <div class="box">
+            <%-- informacion de administradoes gestionar usuarios --%>
+            gestion usuarios
+        </div>
+        <%}%>
         <%}%>
     </body>
     <%@include file="templates/footer.jspf" %>

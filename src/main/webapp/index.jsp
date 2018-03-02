@@ -14,51 +14,75 @@
     <%@include file="templates/header.jspf" %>
     <%@include file="templates/navbar.jspf" %>
     <body>
-
-
-        <div class="row justify-content-center">
-            <div class="col-lg-8 ">
-                <form name="registro_usuarios" method="POST" action="respuesta.jsp">
-                    <fieldset>
-                        <legend>
-                            Datos de Usuario
-                        </legend>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <label>Nombre: <input type="text" name="nombre" class="form-control"></label>
-                            </div>
-                            <div class="col-md-4">
-                                <label>Apellidos: <input type="text" name="apellidos" class="form-control"></label>
-                            </div>
-                            <div class="col-md-4">
-                                <label>E-mail: <input type="email" name="mail" class="form-control"></label>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <label>Contraseña: <input type="password" name="password" class="form-control"></label>
-                            </div>
-                            <div class="col-md-4">
-                                <label>Fecha Nacimiento: <input type="date" name="fecha" class="form-control"></label>
-                            </div>
-                            <div class="col-md-4">
-                                <label>Teléfono: <input type="number" name="tlfn" class="form-control"></label>
-                            </div>
-                        </div>
-                    </fieldset>
-                    <center>
-                        <input type="submit" name="Enviar" value="Enviar" class="btn btn-primary">
-                        <input type="reset" name="reset" value="Reestablecer" class="btn">
-                    </center>
-                </form>
-                <!-- Hey Webmaster! Place this html code where you'd like the game to appear. -->
-<iframe src="https://www.silvergames.com/es/pacman/iframe" width="450" height="500" style="margin:0;padding:0;border:0"></iframe>
-<p style="text-align:center">¡Un <a href="https://www.silvergames.com/es/t/retro">Juegos Retro</a> en Silvergames.com!</p>
-<!-- End of game embed code -->
-    
-            </div>
+        <div class="box-index">
+           
+            
+            
+            
+            
+            
+            <%@include file="templates/modulos/muestra-conciertos.jspf" %>
+            
+            
+            
+            
+            
+            
+            
         </div>
+        
+        
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#myCarousel" data-slide-to="0" class=""></li>
+          <li data-target="#myCarousel" data-slide-to="1" class="active"></li>
+          <li data-target="#myCarousel" data-slide-to="2" class=""></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item">
+            <img class="first-slide" src="imagenes/conciertos/concierto1.jpg" alt="First slide">
+            <div class="container justify-content-center">
+              <div class="carousel-caption ">
+                <h1>Example headline.</h1>
+                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item active">
+            <img class="second-slide" src="imagenes/conciertos/concierto2.jpg" alt="Second slide">
+            <div class="container justify-content-center" >
+              <div class="carousel-caption">
+                <h1>Another example headline.</h1>
+                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item justify-content-center">
+            <img class="third-slide" src="imagenes/conciertos/concierto3.jpg" alt="Third slide">
+            <div class="container justify-content-center">
+              <div class="carousel-caption ">
+                <h1>One more for good measure.</h1>
+                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+        
 
+        <script src="/ButanClub/js/jquery-3.3.1.min.js"></script>
+        <script  type="text/javascript" src="/ButanClub/js/bootstrap.min.js"></script>
     </body>
     <%@include file="templates/footer.jspf" %>
 </html>

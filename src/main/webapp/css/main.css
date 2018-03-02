@@ -51,11 +51,14 @@ input{
 div.box{
     border-radius: 49px 49px 49px 49px;
     margin: 15px;
-    padding: 30px;
+    padding: 30px 60px;
     border: 0px black ridge;
     background-color: white;
 }
-
+div.box h2{
+    margin-bottom: 30px;
+    font-size:2.5em
+}
 a{
     font-family: lobster;
     color:lightgray;

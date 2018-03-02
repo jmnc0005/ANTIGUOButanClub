@@ -1,3 +1,8 @@
+#tipoUsuario{
+    background-color: #fff;
+}
+
+
 *{
     margin: 0;
     padding: 0;
@@ -195,6 +200,7 @@ h3.info-col span{
     font-family: lobster;
     font-size: 1em;
     justify-content: center;
+    text-align:center;
 
 }
 .concierto p{
@@ -251,4 +257,37 @@ h3.info-col span{
 }
 .info-concierto{
      background-color: #ffffff;
+}
+
+.titulo-seccion{
+    margin-bottom: 30px;
+    font-size:2.5em
+}
+
+
+
+ .parallax:before{
+    
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+.index-parallax{
+     background-image: url(../imagenes/parallax-index.jpg);
+    content: " ";
+    height: 100vh;
+    max-width: 100vw;
+    background-size: cover;
+     background-attachment: fixed;
+}
+.contenido-parallax{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: #fff;
+    text-align: center;
+    background-color: rgba(82,52,76,0.54)
 }

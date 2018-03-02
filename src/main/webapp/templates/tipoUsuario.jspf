@@ -1,6 +1,6 @@
 <%-- any content can be specified here e.g.: --%>
 <%@ page pageEncoding="UTF-8" %>
-<form>
+<form id="tipoUsuario" >
     <div>
         <input type="radio" id="no-registrado" name="posible-usuario" value="No Registrado">  
         <label for="no-registrado">No Registrado</label>

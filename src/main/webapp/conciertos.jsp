@@ -25,7 +25,7 @@
 
         <div class="row justify-content-center">
             <div class="col-lg-8 row centrar-contenido box">
-                <h2> Conciertos Disponibles</h2>
+               
                 <%@include file="/templates/modulos/muestra-conciertos.jspf" %>
             </div>
         </div>

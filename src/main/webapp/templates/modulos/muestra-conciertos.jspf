@@ -26,7 +26,7 @@
         <div class="">
             <img src="imagenes/conciertos/concierto2.jpg" width="100%">
         </div>
-        <div class=" centrar-contenido info-concierto">
+        <div class=" centrar-contenido info-concierto ">
             <div class="justify-content-center">
 
                 <p>Cantando hasta la muerte</p>

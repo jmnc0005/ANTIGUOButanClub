@@ -43,7 +43,7 @@
                                                   
                                 <label>Fecha Nacimiento: <input type="date" name="fecha" class="form-control"></label>
                                                   
-                                <label>Teléfono: <input type="phone" name="tlfn" class="form-control"></label>
+                                <label>Teléfono: <input type="tel" name="tlfn" class="form-control"></label>
                             
                     </fieldset>
                    

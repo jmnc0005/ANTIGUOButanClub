@@ -26,9 +26,9 @@
             <%-- saludo --%>
             <div class="row centrar-contenido">
                 
-                <h2> Bienvenido <%= request.getParameter("usuario")%>.
+                <h1> Bienvenido <%= request.getParameter("usuario")%>.
                     <br>
-                </h2>
+                </h1>
                
             </div>
         </div>

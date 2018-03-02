@@ -26,7 +26,7 @@
                     <form>
                         <input type="text" hidden name="posible-usuario" value="Administrador">
                         <input type="text" hidden name="tipoUsuario" value="Enviar">
-                        <input type="submit" class="button btn-primary" name="borrar-usu-1" value="Borrar">
+                        <input type="submit" class="btn btn-primary" name="borrar-usu-1" value="Borrar">
                     </form>
                 </td>
             </tr>
@@ -43,7 +43,7 @@
                     <form>
                         <input type="text" hidden name="posible-usuario" value="Administrador">
                         <input type="text" hidden name="tipoUsuario" value="Enviar">
-                        <input type="submit" class="button btn-primary" name="borrar-usu-2" value="Borrar">
+                        <input type="submit" class="btn btn-primary" name="borrar-usu-2" value="Borrar">
                     </form>
                 </td>
             </tr>
@@ -61,7 +61,7 @@
                     <form>
                         <input type="text" hidden name="posible-usuario" value="Administrador">
                         <input type="text" hidden name="tipoUsuario" value="Enviar">
-                        <input type="submit" class="button btn-primary" name="borrar-usu-3" value="Borrar">
+                        <input type="submit" class="btn btn-primary" name="borrar-usu-3" value="Borrar">
                     </form>
                 </td>
             </tr>

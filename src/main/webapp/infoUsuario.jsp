@@ -25,14 +25,11 @@
 
             <%-- saludo --%>
             <div class="row centrar-contenido">
-                <div class="col-lg-8 ">
-                    Nombre: 
-                    <%= request.getParameter("nombre")%>
+                
+                <h2> Bienvenido <%= request.getParameter("usuario")%>.
                     <br>
-                    Apellidos: 
-                    <%= request.getParameter("apellidos")%>
-                    <br>
-                </div>
+                </h2>
+               
             </div>
         </div>
         <div class="box">

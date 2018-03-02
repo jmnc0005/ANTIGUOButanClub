@@ -31,19 +31,19 @@
                          
                         </legend>
                         
-                        <label>Nombre de Usuario:<input type="text" name="usuario"  class="form-control" ></label>
-                        <label>Contraseña: <input type="password" name="pass" class="form-control"></label>
-                        <label>Confirme Contraseña: <input type="password" name="confirmacion-pass" class="form-control"></label>
+                        <label>Nombre de Usuario:<input type="text" name="usuario" required class="form-control" ></label>
+                        <label>Contraseña: <input type="password" name="pass" required class="form-control"></label>
+                        <label>Confirme Contraseña: <input type="password" required name="confirmacion-pass" class="form-control"></label>
                         
-                                <label>Nombre: <input type="text" name="nombre" class="form-control"></label>
+                                <label>Nombre: <input type="text" name="nombre" required class="form-control"></label>
                                             
-                                <label>Apellidos: <input type="text" name="apellidos" class="form-control"></label>
+                                <label>Apellidos: <input type="text" name="apellidos" required class="form-control"></label>
                                                   
-                                <label>E-mail: <input type="email" name="email" class="form-control"></label>
+                                <label>E-mail: <input type="email" name="email" required class="form-control"></label>
                                                   
-                                <label>Fecha Nacimiento: <input type="date" name="fecha" class="form-control"></label>
+                                <label>Fecha Nacimiento: <input type="date" required name="fecha" class="form-control"></label>
                                                   
-                                <label>Teléfono: <input type="tel" name="tlfn" class="form-control"></label>
+                                <label>Teléfono: <input type="tel" name="tlfn" required class="form-control"></label>
                             
                     </fieldset>
                    
@@ -62,8 +62,8 @@
                          
                         </legend>
                         
-                        <label>Nombre de Usuario:<input type="text" name="usuario" class="form-control"></label><br>
-                        <label>Contraseña: <input type="password" name="pass" class="form-control"></label><br>
+                        <label>Nombre de Usuario:<input type="text" name="usuario"  required class="form-control"></label><br>
+                        <label>Contraseña: <input type="password" name="pass"  required class="form-control"></label><br>
                                                    
                     </fieldset>
                    

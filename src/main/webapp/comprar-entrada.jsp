@@ -15,10 +15,10 @@
         <!--<link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/font-awesome.css">  
         -->
-        <%@include file="templates/estilos.jspf" %>
+        <%@include file="WEB-INF/templates/estilos.jspf" %>
     </head> 
-    <%@include file="templates/header.jspf" %>
-    <%@include file="templates/navbar.jspf" %>
+     
+    <%@include file="WEB-INF/templates/navbar.jspf" %>
     <body>
 
 
@@ -26,10 +26,10 @@
             <div class="col-lg-8 box">
                 <div class="row centrar-contenido">
                     <div class="col-md-4">
-                        <%@include file="templates/modulos/datos-usuario.jspf" %>
+                        <%@include file="WEB-INF/templates/modulos/datos-usuario.jspf" %>
                     </div>
                     <div class="col-md-4">
-                        <%@include file="templates/modulos/datos-concierto.jspf" %>
+                        <%@include file="WEB-INF/templates/modulos/datos-concierto.jspf" %>
                     </div>
 
                 </div>
@@ -49,7 +49,7 @@
         </div>
 
     </body>
-    <%@include file="templates/footer.jspf" %>
+    <%@include file="WEB-INF/templates/footer.jspf" %>
 </html>
 
 </html>

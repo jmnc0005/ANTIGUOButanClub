@@ -15,10 +15,10 @@
         <!--<link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/font-awesome.css">  
         -->
-        <%@include file="templates/estilos.jspf" %>
+        <%@include file="WEB-INF/templates/estilos.jspf" %>
     </head> 
-    <%@include file="templates/header.jspf" %>
-    <%@include file="templates/navbar.jspf" %>
+     
+    <%@include file="WEB-INF/templates/navbar.jspf" %>
     <body>
 
 
@@ -29,7 +29,7 @@
         </div>
 
     </body>
-    <%@include file="templates/footer.jspf" %>
+    <%@include file="WEB-INF/templates/footer.jspf" %>
 </html>
 
 </html>

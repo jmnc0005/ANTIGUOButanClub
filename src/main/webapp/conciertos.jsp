@@ -16,20 +16,20 @@
         <!--<link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/font-awesome.css">  
         -->
-        <%@include file="templates/estilos.jspf" %>
+        <%@include file="WEB-INF/templates/estilos.jspf" %>
     </head> 
-    <%@include file="templates/header.jspf" %>
-    <%@include file="templates/navbar.jspf" %>
+     
+    <%@include file="WEB-INF/templates/navbar.jspf" %>
     <body>
 
 
         <div class="row justify-content-center">
             <div class=" row centrar-contenido box">
                 <h2>Conciertos</h2>
-                <%@include file="/templates/modulos/muestra-conciertos.jspf" %>
+                <%@include file="/WEB-INF/templates/modulos/muestra-conciertos.jspf" %>
             </div>
         </div>
 
     </body>
-    <%@include file="templates/footer.jspf" %>
+    <%@include file="WEB-INF/templates/footer.jspf" %>
 </html>

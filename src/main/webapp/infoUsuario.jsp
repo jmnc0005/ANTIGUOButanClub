@@ -6,6 +6,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+    
+    <%@include file="WEB-INF/templates/tipoUsuario.jspf" %>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">         
         <title></title>
@@ -14,12 +16,12 @@
         <!--<link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/font-awesome.css">  
         -->
-        <%@include file="templates/estilos.jspf" %>
+        <%@include file="WEB-INF/templates/estilos.jspf" %>
     </head> 
 
 
-    <%@include file="templates/header.jspf" %>
-    <%@include file="templates/navbar.jspf" %>
+     
+    <%@include file="WEB-INF/templates/navbar.jspf" %>
     <body>
         <div class="box">
 
@@ -38,7 +40,7 @@
                 <h2>Tus conciertos</h2>
                 <br>
             </div>
-            <%@include file="templates/modulos/conciertos-usuario.jspf" %>
+            <%@include file="WEB-INF/templates/modulos/conciertos-usuario.jspf" %>
 
         </div>
         <%if (request.getParameter("tipoUsuario") != null) {%>
@@ -50,7 +52,7 @@
             <DIV class="row centrar-contenido">
                 <h2>Solicitar sala</h2>
             </DIV>
-            <%@include file="templates/modulos/solicitar-sala.jspf" %>                          
+            <%@include file="WEB-INF/templates/modulos/solicitar-sala.jspf" %>                          
 
 
 
@@ -63,7 +65,7 @@
                 <h2>Gestión de conciertos</h2>
             </div>
             
-            <%@include file="templates/modulos/gestion-conciertos.jspf" %>  
+            <%@include file="WEB-INF/templates/modulos/gestion-conciertos.jspf" %>  
         </div>
         <div class="box">
             <%-- informacion de administradoes gestionar usuarios --%>
@@ -71,11 +73,11 @@
                 <h2>Gestión de usuarios</h2>
             </div>
             
-            <%@include file="templates/modulos/gestion-usuarios.jspf" %>  
+            <%@include file="WEB-INF/templates/modulos/gestion-usuarios.jspf" %>  
         </div>
         <%}%>
         <%}%>
     </body>
-    <%@include file="templates/footer.jspf" %>
+    <%@include file="WEB-INF/templates/footer.jspf" %>
 </html>
 

@@ -15,22 +15,22 @@
         <!--<link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/font-awesome.css">  
         -->
-        <%@include file="templates/estilos.jspf" %>
+        <%@include file="WEB-INF/templates/estilos.jspf" %>
     </head> 
-    <%@include file="templates/header.jspf" %>
-    <%@include file="templates/navbar.jspf" %>
+     
+    <%@include file="WEB-INF/templates/navbar.jspf" %>
     <body>
 
 
         <div class="row justify-content-center">
             <div class="col-lg-8 ">
-                <a href="templates/modulos/datos-usuario.jspf"></a>
+                <a href="WEB-INF/templates/modulos/datos-usuario.jspf"></a>
                 
              
             </div>
         </div>
 
     </body>
-    <%@include file="templates/footer.jspf" %>
+    <%@include file="WEB-INF/templates/footer.jspf" %>
 </html>
 

@@ -13,11 +13,11 @@
         <!--<link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/font-awesome.css">  
         -->
-        <%@include file="WEB-INF/templates/estilos.jspf" %>
+        <%@include file="../templates/estilos.jspf" %>
     </head> 
 
  
-<%@include file="WEB-INF/templates/navbar.jspf" %>
+<%@include file="../templates/navbar.jspf" %>
     <body>
         
         
@@ -74,5 +74,5 @@
         </div>
 
     </body>
-<%@include file="WEB-INF/templates/footer.jspf" %>
+<%@include file="../templates/footer.jspf" %>
 </html>

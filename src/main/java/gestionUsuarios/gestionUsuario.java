@@ -21,9 +21,11 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Pedro Luis
  */
-@WebServlet(name = "gestionUsuario", urlPatterns = {"/usuarios"})
+@WebServlet(name = "gestionUsuario", urlPatterns = {"/usuarios/*"})
 public class gestionUsuario extends HttpServlet {
+
     List<Usuario> usuarios;
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -34,18 +36,18 @@ public class gestionUsuario extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    public void init() throws ServletException{
+    public void init() throws ServletException {
         super.init();
-        usuarios=new ArrayList<>();
-        usuarios.add(new Usuario("juan1","juan","juan","garcia","juan@correo.es","953682451","Registrado","1985-05-21"));
-        usuarios.add(new Usuario("ana1","ana","ana","martinez","ana@correo.es","953645251","Artista","1972-02-12"));
-        usuarios.add(new Usuario("SH","sh","Stephen","Hawking","SH@butan.es","953682451","Administrador","1942-01-08"));
+        usuarios = new ArrayList<>();
+        usuarios.add(new Usuario("juan1", "juan", "juan", "garcia", "juan@correo.es", "953682451", "Registrado", "1985-05-21"));
+        usuarios.add(new Usuario("ana1", "ana", "ana", "martinez", "ana@correo.es", "953645251", "Artista", "1972-02-12"));
+        usuarios.add(new Usuario("SH", "sh", "Stephen", "Hawking", "SH@butan.es", "953682451", "Administrador", "1942-01-08"));
     }
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
-       
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -60,11 +62,13 @@ public class gestionUsuario extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        Usuario usuario = new Usuario();
+                request.setAttribute("usuario", usuario);
         RequestDispatcher rd;
         String action = (request.getPathInfo() != null ? request.getPathInfo() : "");
-        switch(action){
+        switch (action) {
             default:
-                rd=request.getRequestDispatcher("/WEB-INF/usuarios/Acceso.jsp");
+                rd = request.getRequestDispatcher("/WEB-INF/usuarios/Acceso.jsp");
                 break;
         }
         processRequest(request, response);
@@ -83,10 +87,10 @@ public class gestionUsuario extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-        
-        String altausuario=request.getParameter("altaUsuario");
-        if(altausuario!=null){
-            Usuario usu=new Usuario();
+
+        String altausuario = request.getParameter("altaUsuario");
+        if (altausuario != null) {
+            Usuario usu =new Usuario();
             usu.setApellidos(request.getParameter("apellidos"));
             usu.setContraseña(request.getParameter("password"));
             usu.setCorreo(request.getParameter("email"));
@@ -95,10 +99,11 @@ public class gestionUsuario extends HttpServlet {
             usu.setTipoUsuario("Registrado");
             usu.setUsuario(request.getParameter("usuario"));
             usu.setfNacimiento(request.getParameter("fecha"));
-            
+
             usuarios.add(usu);
-            
-            response.sendRedirect("NuevoUsuario.jsp");
+
+            RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/usuarios/NuevoUsuario.jsp");
+            rd.forward(request, response);
         }
     }
 

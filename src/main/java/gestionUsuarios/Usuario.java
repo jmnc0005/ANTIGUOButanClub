@@ -25,7 +25,14 @@ public class Usuario {
     }
 
     Usuario() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.usuario = "  ";
+        this.contraseña = "  ";
+        this.nombre = "  ";
+        this.apellidos = "  ";
+        this.correo = "  ";
+        this.telefono = "  ";
+        this.tipoUsuario = "  ";
+        this.fNacimiento = "  ";
     }
 
     public void setTipoUsuario(String tipoUsuario) {

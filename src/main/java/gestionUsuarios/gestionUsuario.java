@@ -10,6 +10,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,7 +21,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Pedro Luis
  */
-@WebServlet(name = "gestionUsuario", urlPatterns = {"/gestionUsuario"})
+@WebServlet(name = "gestionUsuario", urlPatterns = {"/usuarios"})
 public class gestionUsuario extends HttpServlet {
     List<Usuario> usuarios;
     /**
@@ -43,10 +44,8 @@ public class gestionUsuario extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            
-        }
+        
+       
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -61,7 +60,15 @@ public class gestionUsuario extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        RequestDispatcher rd;
+        String action = (request.getPathInfo() != null ? request.getPathInfo() : "");
+        switch(action){
+            default:
+                rd=request.getRequestDispatcher("/WEB-INF/usuarios/Acceso.jsp");
+                break;
+        }
         processRequest(request, response);
+        rd.forward(request, response);
     }
 
     /**

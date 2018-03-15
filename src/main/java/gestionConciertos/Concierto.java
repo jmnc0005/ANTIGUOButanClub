@@ -5,33 +5,54 @@
  */
 package gestionConciertos;
 
+import java.util.Date;
+
 /**
  *
  * @author Pedro Luis
  */
 public class Concierto {
-    private String titulo;
+    private String nombreArtista;
     private int hora;
-    private int fecha;
+    private Date fecha;
     private float precio;
+    private String tipoMusica;
+    private String imagen;
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
+
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setTipoMusica(String tipoMusica) {
+        this.tipoMusica = tipoMusica;
+    }
+
+    public String getTipoMuaica() {
+        return tipoMusica;
+    }
     
-    public Concierto(String _titulo,int _hora,int _fecha,float _precio){
-        titulo=_titulo;
+    public Concierto(String _nombreArtista,int _hora,Date _fecha,float _precio,String _tipoMusica,String _imagen){
+        nombreArtista=_nombreArtista;
         hora=_hora;
         fecha=_fecha;
         precio=_precio;
-        
+        tipoMusica=_tipoMusica;
+        imagen=_imagen;
     }
 
     public String getTitulo() {
-        return titulo;
+        return nombreArtista;
     }
 
     public int getHora() {
         return hora;
     }
 
-    public int getFecha() {
+    public Date getFecha() {
         return fecha;
     }
 
@@ -39,15 +60,15 @@ public class Concierto {
         return precio;
     }
 
-    public void setTitulo(String _titulo) {
-        titulo = _titulo;
+    public void setTitulo(String _nombreArtista) {
+        nombreArtista = _nombreArtista;
     }
 
     public void setHora(int _hora) {
         hora = _hora;
     }
 
-    public void setFecha(int _fecha) {
+    public void setFecha(Date _fecha) {
         fecha = _fecha;
     }
 

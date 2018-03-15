@@ -7,4 +7,6 @@ Nombre de usuario: <%= request.getParameter("usuario")%><br>
 Nombre: <%= request.getParameter("nombre")%><br>
 Apellidos: <%= request.getParameter("apellidos")%><br>
 E-mail:<%= request.getParameter("email")%>
-Teléfono:<%= request.getParameter("tlfn")%> <br>
+Teléfono:<%= request.getParameter("tlfn")%> 
+<br>
+Fecha:<%= request.getParameter("fecha")%>

@@ -24,7 +24,7 @@
         <div class="row justify-content-center">
             <div class="col-md-4 box">
                 <center>
-                <form name="registro_usuarios" method="POST" action="NuevoUsuario.jsp">
+                    <form name="registro_usuarios" method="POST">
                     <fieldset>
                         <legend>
                             <h2>Nuevo Usuario</h2>
@@ -47,7 +47,7 @@
                             
                     </fieldset>
                    
-                        <input type="submit" name="Enviar" value="Enviar" class="btn btn-primary">
+                        <input type="submit" name="altaUsuario" value="Enviar" class="btn btn-primary">
                         <input type="reset" name="reset" value="Reestablecer" class="btn">
                     
                 </form>

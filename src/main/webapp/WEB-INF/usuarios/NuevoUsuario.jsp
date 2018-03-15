@@ -20,15 +20,15 @@
         <!--<link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/font-awesome.css">  
         -->
-        <%@include file="WEB-INF/templates/estilos.jspf" %>
+        <%@ include file="../templates/estilos.jspf" %>
     </head> 
      
-    <%@include file="WEB-INF/templates/navbar.jspf" %>
+    <%@include file="../templates/navbar.jspf" %>
     <body>
         <div class="row justify-content-center ">
             <div class="col-lg-8 row centrar-contenido box">
                 <div class="col-md-4">
-                    <%@include file="WEB-INF/templates/modulos/datos-usuario.jspf" %>
+                    <%@include file="../templates/modulos/datos-usuario.jspf" %>
                 </div>
                 <div class="col-md-4">
                 <a class="btn btn-primary" href="/ButanClub">Terminar</a>
@@ -38,6 +38,6 @@
         </div>
 
     </body>
-    <%@include file="WEB-INF/templates/footer.jspf" %>
+    <%@include file="../templates/footer.jspf" %>
 </html>
 

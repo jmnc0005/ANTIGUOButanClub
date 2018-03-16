@@ -11,6 +11,10 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import java.io.IOException;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -27,6 +31,8 @@ import javax.servlet.http.HttpServletResponse;
 public class gestionUsuario extends HttpServlet {
 
     List<Usuario> usuarios;
+    String svlURL, borrar;
+    final String srvViewPath="/WEB-INF/usuarios";
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,17 +44,24 @@ public class gestionUsuario extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    public void init() throws ServletException {
-        super.init();
+    public void init(ServletConfig servletConfig) throws ServletException {
+        super.init(servletConfig);
+        borrar = " ";
+        
+        svlURL = servletConfig.getServletContext().getContextPath() + "/usuarios";
+        
         usuarios = new ArrayList<>();
         usuarios.add(new Usuario("juan1", "juan", "juan", "garcia", "juan@correo.es", "953682451", "Registrado", "1985-05-21"));
         usuarios.add(new Usuario("ana1", "ana", "ana", "martinez", "ana@correo.es", "953645251", "Artista", "1972-02-12"));
         usuarios.add(new Usuario("SH", "sh", "Stephen", "Hawking", "SH@butan.es", "953682451", "Administrador", "1942-01-08"));
+
     }
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        
+        request.setAttribute("svlURL", svlURL);
 
     }
 
@@ -64,23 +77,35 @@ public class gestionUsuario extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        processRequest(request, response);
         Usuario usuario = new Usuario();
         request.setAttribute("usuario", usuario);
+        request.setAttribute("usuarios", usuarios);
         RequestDispatcher rd;
         String action = (request.getPathInfo() != null ? request.getPathInfo() : "");
-        request.setAttribute("usuarios", usuarios);
+
         switch (action) {
+            case "/RegistroUsuario":{
+                Usuario usu= new Usuario();
+                //request.setAttribute("usuario", usu);
+                rd=request.getRequestDispatcher(srvViewPath+"/RegistroUsuario.jsp");
+                break;
+            }
             default:
                 if (request.getSession().getAttribute("log") != null) {
 
                     rd = request.getRequestDispatcher("/WEB-INF/usuarios/infoUsuario.jsp");
-                    rd.forward(request, response);
+                    
                 } else {
-                    rd = request.getRequestDispatcher("/WEB-INF/usuarios/Acceso.jsp");
+                    rd = request.getRequestDispatcher(srvViewPath+"/Acceso.jsp");
                 }
                 break;
         }
-        processRequest(request, response);
+
+        if (!" ".equals(borrar)) {
+            borra(borrar);
+        }
         rd.forward(request, response);
     }
 
@@ -96,38 +121,40 @@ public class gestionUsuario extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-        RequestDispatcher rd=request.getRequestDispatcher("");
-        String Login = request.getParameter("Login");
-        String altausuario = request.getParameter("altaUsuario");
-        if (Login != null) {
-            Usuario usu = busca(request.getParameter("usuario"), request.getParameter("pass"));
-            if (" ".equals(usu.usuario)) {
-                String msg="Usuario no registrado o credenciales incorrectas.";
-                request.setAttribute("msjErrorAlta", msg);
-                    rd = request.getRequestDispatcher("/WEB-INF/usuarios/Acceso.jsp");
-            } else {
-                request.getSession().setAttribute("log", usu);
+        RequestDispatcher rd = request.getRequestDispatcher("");
 
-                 rd = request.getRequestDispatcher("/WEB-INF/usuarios/infoUsuario.jsp");
-                
+        String action = (request.getPathInfo() != null ? request.getPathInfo() : "");
+        switch (action) {
+            case "": {
+                Usuario usu = busca(request.getParameter("usuario"), request.getParameter("pass"));
+                if (" ".equals(usu.usuario)) {
+                    String msg = "Usuario no registrado o credenciales incorrectas.";
+                    request.setAttribute("msjErrorAlta", msg);
+                    rd = request.getRequestDispatcher(srvViewPath+"/Acceso.jsp");
+                } else {
+                    request.getSession().setAttribute("log", usu);
+
+                    rd = request.getRequestDispatcher(srvViewPath+"/infoUsuario.jsp");
+
+                }
+                break;
             }
+            case "/RegistroUsuario": {
+                Usuario usu = new Usuario();
+                usu.setApellidos(request.getParameter("apellidos"));
+                usu.setContraseña(request.getParameter("pass"));
+                usu.setCorreo(request.getParameter("email"));
+                usu.setNombre(request.getParameter("nombre"));
+                usu.setTelefono(request.getParameter("tlfn"));
+                usu.setTipoUsuario("Registrado");
+                usu.setUsuario(request.getParameter("usuario"));
+                usu.setfNacimiento(request.getParameter("fecha"));
 
-        }
-        if (altausuario != null) {
-            Usuario usu = new Usuario();
-            usu.setApellidos(request.getParameter("apellidos"));
-            usu.setContraseña(request.getParameter("pass"));
-            usu.setCorreo(request.getParameter("email"));
-            usu.setNombre(request.getParameter("nombre"));
-            usu.setTelefono(request.getParameter("tlfn"));
-            usu.setTipoUsuario("Registrado");
-            usu.setUsuario(request.getParameter("usuario"));
-            usu.setfNacimiento(request.getParameter("fecha"));
+                usuarios.add(usu);
 
-            usuarios.add(usu);
-
-            rd = request.getRequestDispatcher("WEB-INF/usuarios/NuevoUsuario.jsp");
-            
+                rd = request.getRequestDispatcher(srvViewPath+"/NuevoUsuario.jsp");
+                break;
+            }
         }
         rd.forward(request, response);
     }
@@ -152,5 +179,15 @@ public class gestionUsuario extends HttpServlet {
 
         }
         return ret;
+    }
+
+    private void borra(String usuario) {
+        for (int i = 0; i < usuarios.size(); i++) {
+            if (usuarios.get(i).getUsuario().equals(usuario)) {
+                usuarios.remove(i);
+                break;
+            }
+
+        }
     }
 }

@@ -24,11 +24,7 @@
                     <td>${u.telefono}</td>
                     <td>${u.tipoUsuario}</td>
                     <td>
-                        <form>
-                            <input type="text" hidden name="posible-usuario" value="Administrador">
-                            <input type="text" hidden name="tipoUsuario" value="Enviar">
-                            <input type="submit" class="btn btn-primary" name="borrar-usu-1" value="Borrar">
-                        </form>
+                        <a href="${svlURL}/infoUsuario.jsp?borrar=${u.usuario}" class="btn-primary btn" >Borrar</a>
                     </td>
                 </tr>
             </c:forEach>

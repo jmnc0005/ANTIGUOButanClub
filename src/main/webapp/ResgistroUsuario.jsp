@@ -1,8 +1,10 @@
 <%-- 
-    Document   : Acceso
-    Created on : 19-feb-2018, 13:46:26
-    Author     : josem
---%><%@page contentType="text/html" pageEncoding="UTF-8"%>
+    Document   : ResgistroUsuario
+    Created on : 16-mar-2018, 19:39:25
+    Author     : Pedro Luis
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -13,17 +15,16 @@
         <!--<link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/font-awesome.css">  
         -->
-        <%@include file="../templates/estilos.jspf" %>
+        <%@include file="/WEB-INF/templates/estilos.jspf" %>
     </head> 
-
- 
-<%@include file="../templates/navbar.jspf" %>
+     
+    <%@include file="/WEB-INF/templates/navbar.jspf" %>
     <body>
-        
-        
+
+
         <div class="row justify-content-center">
-            
-                <%--<center>
+            <div class="col-lg-8 ">
+                <center>
                     <form name="registro_usuarios" method="POST">
                     <fieldset>
                         <legend>
@@ -52,28 +53,11 @@
                     
                 </form>
             </center>
-                --%>
-            <div class="col-md-4 box">
-                <center>
-                <form  method="POST" >
-                    <fieldset>
-                        <legend>
-                            <h2>Soy usuario.</h2>
-                         
-                        </legend>
-                        
-                        <label>Nombre de Usuario:<input type="text" name="usuario"  required class="form-control"></label><br>
-                        <label>Contraseña: <input type="password" name="pass"  required class="form-control"></label><br>
-                        <label class="rojo">${msjErrorAlta}</label>
-                    </fieldset>
-                   
-                        <input type="submit" name="Login" value="Enviar" class="btn btn-primary">
-                        <a class="btn-link btn" href='${svlURL}/RegistroUsuario' >Registrarse</a>
-                </form>
-                </center>   
             </div>
         </div>
 
     </body>
-<%@include file="../templates/footer.jspf" %>
+    <%@include file="/WEB-INF/templates/footer.jspf" %>
 </html>
+
+

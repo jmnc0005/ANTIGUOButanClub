@@ -93,10 +93,10 @@ public class gestionUsuario extends HttpServlet {
         
         String Login = (String)request.getSession().getAttribute("Login");
         String altausuario = request.getParameter("altaUsuario");
-        if(0==Login.compareTo("Login")){
+        if(Login != null){
             Boolean log=true;
             if (log==true){
-                RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/usuarios/NuevoUsuario.jsp");
+                RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/usuarios/infoUsuario.jsp");
             rd.forward(request, response);
             }
         }

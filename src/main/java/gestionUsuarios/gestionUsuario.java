@@ -11,15 +11,14 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-
-
-
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 /**
  *
  * @author Pedro Luis
@@ -28,7 +27,6 @@ import javax.servlet.http.HttpServletResponse;
 public class gestionUsuario extends HttpServlet {
 
     List<Usuario> usuarios;
-
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -66,12 +64,18 @@ public class gestionUsuario extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         Usuario usuario = new Usuario();
-                request.setAttribute("usuario", usuario);
+        request.setAttribute("usuario", usuario);
         RequestDispatcher rd;
         String action = (request.getPathInfo() != null ? request.getPathInfo() : "");
         switch (action) {
             default:
-                rd = request.getRequestDispatcher("/WEB-INF/usuarios/Acceso.jsp");
+                if (request.getSession().getAttribute("log") != null) {
+
+                    rd = request.getRequestDispatcher("/WEB-INF/usuarios/infoUsuario.jsp");
+                    rd.forward(request, response);
+                } else {
+                    rd = request.getRequestDispatcher("/WEB-INF/usuarios/Acceso.jsp");
+                }
                 break;
         }
         processRequest(request, response);
@@ -90,18 +94,24 @@ public class gestionUsuario extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-        
-        String Login = (String)request.getSession().getAttribute("Login");
+
+        String Login = request.getParameter("Login");
         String altausuario = request.getParameter("altaUsuario");
-        if(Login != null){
-            Boolean log=true;
-            if (log==true){
-                RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/usuarios/infoUsuario.jsp");
-            rd.forward(request, response);
+        if (Login != null) {
+            Usuario usu = busca(request.getParameter("usuario"), request.getParameter("pass"));
+            if (usu.usuario == " " ) {
+                //RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/usuarios/Acceso.jsp");
+                response.sendRedirect("WEB-INF/usuarios/Acceso.jsp");
+                //rd.forward(request, response);
+            } else {
+                request.getSession().setAttribute("log", usu);
+                RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/usuarios/infoUsuario.jsp");
+                rd.forward(request, response);
             }
+
         }
         if (altausuario != null) {
-            Usuario usu =new Usuario();
+            Usuario usu = new Usuario();
             usu.setApellidos(request.getParameter("apellidos"));
             usu.setContraseña(request.getParameter("password"));
             usu.setCorreo(request.getParameter("email"));
@@ -128,4 +138,15 @@ public class gestionUsuario extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
+    // metodo de busqueda en List
+    private Usuario busca(String usuario, String contraseña) {
+        Usuario ret = new Usuario();
+        for (int i = 0; i < usuarios.size(); i++) {
+            if (usuarios.get(i).getUsuario() == usuario && usuarios.get(i).getContraseña() == contraseña) {
+                ret = usuarios.get(i);
+            }
+
+        }
+        return ret;
+    }
 }

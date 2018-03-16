@@ -64,7 +64,7 @@
                         
                         <label>Nombre de Usuario:<input type="text" name="usuario"  required class="form-control"></label><br>
                         <label>Contraseña: <input type="password" name="pass"  required class="form-control"></label><br>
-                                                   
+                        <label class="rojo">${msjErrorAlta}</label>
                     </fieldset>
                    
                         <input type="submit" name="Login" value="Enviar" class="btn btn-primary">

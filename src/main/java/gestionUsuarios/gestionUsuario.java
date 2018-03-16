@@ -68,6 +68,7 @@ public class gestionUsuario extends HttpServlet {
         request.setAttribute("usuario", usuario);
         RequestDispatcher rd;
         String action = (request.getPathInfo() != null ? request.getPathInfo() : "");
+        request.setAttribute("usuarios", usuarios);
         switch (action) {
             default:
                 if (request.getSession().getAttribute("log") != null) {
@@ -101,6 +102,8 @@ public class gestionUsuario extends HttpServlet {
         if (Login != null) {
             Usuario usu = busca(request.getParameter("usuario"), request.getParameter("pass"));
             if (" ".equals(usu.usuario)) {
+                String msg="Usuario no registrado o credenciales incorrectas.";
+                request.getSession().setAttribute("msjErrorAlta", msg);
                 response.sendRedirect("/WEB-INF/usuarios/Acceso.jsp");
             } else {
                 request.getSession().setAttribute("log", usu);

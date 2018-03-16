@@ -10,13 +10,16 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
+
+
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 /**
  *
  * @author Pedro Luis
@@ -87,8 +90,16 @@ public class gestionUsuario extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-
+        
+        String Login = (String)request.getSession().getAttribute("Login");
         String altausuario = request.getParameter("altaUsuario");
+        if(0==Login.compareTo("Login")){
+            Boolean log=true;
+            if (log==true){
+                RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/usuarios/NuevoUsuario.jsp");
+            rd.forward(request, response);
+            }
+        }
         if (altausuario != null) {
             Usuario usu =new Usuario();
             usu.setApellidos(request.getParameter("apellidos"));

@@ -55,7 +55,7 @@
             </div>
             <div class="col-md-4 box">
                 <center>
-                <form name="registro_usuarios" method="POST" action="infoUsuario.jsp">
+                <form name="registro_usuarios" method="POST" >
                     <fieldset>
                         <legend>
                             <h2>Soy usuario.</h2>

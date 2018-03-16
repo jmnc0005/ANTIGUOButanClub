@@ -96,20 +96,20 @@ public class gestionUsuario extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-
+        RequestDispatcher rd=request.getRequestDispatcher("");
         String Login = request.getParameter("Login");
         String altausuario = request.getParameter("altaUsuario");
         if (Login != null) {
             Usuario usu = busca(request.getParameter("usuario"), request.getParameter("pass"));
             if (" ".equals(usu.usuario)) {
                 String msg="Usuario no registrado o credenciales incorrectas.";
-                request.getSession().setAttribute("msjErrorAlta", msg);
-                response.sendRedirect("/WEB-INF/usuarios/Acceso.jsp");
+                request.setAttribute("msjErrorAlta", msg);
+                    rd = request.getRequestDispatcher("/WEB-INF/usuarios/Acceso.jsp");
             } else {
                 request.getSession().setAttribute("log", usu);
 
-                RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/usuarios/infoUsuario.jsp");
-                rd.forward(request, response);
+                 rd = request.getRequestDispatcher("/WEB-INF/usuarios/infoUsuario.jsp");
+                
             }
 
         }
@@ -126,9 +126,10 @@ public class gestionUsuario extends HttpServlet {
 
             usuarios.add(usu);
 
-            RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/usuarios/NuevoUsuario.jsp");
-            rd.forward(request, response);
+            rd = request.getRequestDispatcher("WEB-INF/usuarios/NuevoUsuario.jsp");
+            
         }
+        rd.forward(request, response);
     }
 
     /**

@@ -27,6 +27,7 @@ import javax.servlet.http.HttpServletResponse;
 public class gestionUsuario extends HttpServlet {
 
     List<Usuario> usuarios;
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -99,12 +100,11 @@ public class gestionUsuario extends HttpServlet {
         String altausuario = request.getParameter("altaUsuario");
         if (Login != null) {
             Usuario usu = busca(request.getParameter("usuario"), request.getParameter("pass"));
-            if (usu.usuario == " " ) {
-                //RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/usuarios/Acceso.jsp");
-                response.sendRedirect("WEB-INF/usuarios/Acceso.jsp");
-                //rd.forward(request, response);
+            if (" ".equals(usu.usuario)) {
+                response.sendRedirect("/WEB-INF/usuarios/Acceso.jsp");
             } else {
                 request.getSession().setAttribute("log", usu);
+
                 RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/usuarios/infoUsuario.jsp");
                 rd.forward(request, response);
             }
@@ -113,7 +113,7 @@ public class gestionUsuario extends HttpServlet {
         if (altausuario != null) {
             Usuario usu = new Usuario();
             usu.setApellidos(request.getParameter("apellidos"));
-            usu.setContraseña(request.getParameter("password"));
+            usu.setContraseña(request.getParameter("pass"));
             usu.setCorreo(request.getParameter("email"));
             usu.setNombre(request.getParameter("nombre"));
             usu.setTelefono(request.getParameter("tlfn"));
@@ -142,7 +142,7 @@ public class gestionUsuario extends HttpServlet {
     private Usuario busca(String usuario, String contraseña) {
         Usuario ret = new Usuario();
         for (int i = 0; i < usuarios.size(); i++) {
-            if (usuarios.get(i).getUsuario() == usuario && usuarios.get(i).getContraseña() == contraseña) {
+            if (usuarios.get(i).getUsuario().equals(usuario) && usuarios.get(i).getContraseña().equals(contraseña)) {
                 ret = usuarios.get(i);
             }
 

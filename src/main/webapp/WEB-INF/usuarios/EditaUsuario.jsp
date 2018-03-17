@@ -32,7 +32,7 @@
                          
                         </legend>
                         
-                        <label>Nombre de Usuario:<input type="text" value="${usuario.usuario}" name="usuario" required class="form-control" ></label>
+                        <input hidden type="text" value="${usuario.usuario}" name="usuario" required class="form-control" >
                         <label>Contraseña: <input type="password" name="pass" value="${usuario.contraseña}" required class="form-control"></label>
                         <label>Confirme Contraseña: <input type="password" value="${usuario.contraseña}" required name="confirmacion-pass" class="form-control"></label>
                         

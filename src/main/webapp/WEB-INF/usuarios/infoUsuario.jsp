@@ -8,7 +8,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
-    
+
     <%@include file="/WEB-INF/templates/tipoUsuario.jspf" %>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">         
@@ -22,18 +22,19 @@
     </head> 
 
 
-     
+
     <%@include file="/WEB-INF/templates/navbar.jspf" %>
     <body>
         <div class="box">
 
             <%-- saludo --%>
+            <div class="row float-right"><a class="btn btn-primary" href="${svlURL}/logOut">Cerrar sesión</a></div>
             <div class="row centrar-contenido">
-                
+
                 <h1> Bienvenido ${log.usuario}.
                     <br>
                 </h1>
-               
+
             </div>
         </div>
         <div class="box">
@@ -45,37 +46,37 @@
             <%@include file="/WEB-INF/templates/modulos/conciertos-usuario.jspf" %>
 
         </div>
-            <c:if test="${log.tipoUsuario == 'Artista'}">
-        <div class="box">
-            <%-- informacion de artistas --%>
-            <DIV class="row centrar-contenido">
-                <h2>Solicitar sala</h2>
-            </DIV>
-            <%@include file="/WEB-INF/templates/modulos/solicitar-sala.jspf" %>                          
-           
+        <c:if test="${log.tipoUsuario == 'Artista'}">
+            <div class="box">
+                <%-- informacion de artistas --%>
+                <DIV class="row centrar-contenido">
+                    <h2>Solicitar sala</h2>
+                </DIV>
+                <%@include file="/WEB-INF/templates/modulos/solicitar-sala.jspf" %>                          
 
 
-        </div> 
-            </c:if>
-            
-            <c:if test="${log.tipoUsuario == 'Administrador'}">
-        <div class="box">
-            <%-- informacion de administradoes gestionar conciertos --%>
-            <div class="row centrar-contenido">
-                <h2>Gestión de conciertos</h2>
+
+            </div> 
+        </c:if>
+
+        <c:if test="${log.tipoUsuario == 'Administrador'}">
+            <div class="box">
+                <%-- informacion de administradoes gestionar conciertos --%>
+                <div class="row centrar-contenido">
+                    <h2>Gestión de conciertos</h2>
+                </div>
+
+                <%@include file="/WEB-INF/templates/modulos/gestion-conciertos.jspf" %>  
             </div>
-            
-            <%@include file="/WEB-INF/templates/modulos/gestion-conciertos.jspf" %>  
-        </div>
-        <div class="box">
-            <%-- informacion de administradoes gestionar usuarios --%>
-             <div class="row centrar-contenido">
-                <h2>Gestión de usuarios</h2>
+            <div class="box">
+                <%-- informacion de administradoes gestionar usuarios --%>
+                <div class="row centrar-contenido">
+                    <h2>Gestión de usuarios</h2>
+                </div>
+
+                <%@include file="/WEB-INF/templates/modulos/gestion-usuarios.jspf" %>  
             </div>
-            
-            <%@include file="/WEB-INF/templates/modulos/gestion-usuarios.jspf" %>  
-        </div>
-            </c:if>
+        </c:if>
     </body>
     <%@include file="/WEB-INF/templates/footer.jspf" %>
 </html>

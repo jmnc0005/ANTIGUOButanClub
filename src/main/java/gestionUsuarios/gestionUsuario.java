@@ -87,6 +87,13 @@ public class gestionUsuario extends HttpServlet {
         String action = (request.getPathInfo() != null ? request.getPathInfo() : "");
 
         switch (action) {
+            case "/logOut": {
+                //Erase session data
+                request.getSession().invalidate();
+                //Redirect user to index page
+                rd = request.getRequestDispatcher(srvViewPath + "/Acceso.jsp");
+                break;
+            }
             case "/edita": {
                 String usuarioEdita = request.getParameter("usuario-edita");
                 Usuario usu = busca(usuarioEdita);
@@ -197,15 +204,17 @@ public class gestionUsuario extends HttpServlet {
         }
         return ret;
     }
-    private boolean guarda(Usuario usu){
-        for(int i=0;i< usuarios.size(); ++i){
-            if(usuarios.get(i).usuario.equals(usu.usuario)){
-            usuarios.set(i, usu);
-            return true;
-        }
+
+    private boolean guarda(Usuario usu) {
+        for (int i = 0; i < usuarios.size(); ++i) {
+            if (usuarios.get(i).usuario.equals(usu.usuario)) {
+                usuarios.set(i, usu);
+                return true;
+            }
         }
         return false;
     }
+
     private void borra(String usuario) {
         for (int i = 0; i < usuarios.size(); i++) {
             if (usuarios.get(i).getUsuario().equals(usuario)) {
@@ -226,7 +235,6 @@ public class gestionUsuario extends HttpServlet {
         usu.setUsuario(request.getParameter("usuario"));
         usu.setfNacimiento(request.getParameter("fecha"));
 
-        
         return true;
     }
 }

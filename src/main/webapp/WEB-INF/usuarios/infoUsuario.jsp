@@ -4,6 +4,8 @@
     Author     : josem
 --%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     
@@ -43,22 +45,20 @@
             <%@include file="/WEB-INF/templates/modulos/conciertos-usuario.jspf" %>
 
         </div>
-        <%if (request.getParameter("tipoUsuario") != null) {%>
-        <%String posibleUsuario = request.getParameter("posible-usuario");%>
-
-        <%if (posibleUsuario.equals("Artista")) {%>
+            <c:if test="${log.tipoUsuario == 'Artista'}">
         <div class="box">
             <%-- informacion de artistas --%>
             <DIV class="row centrar-contenido">
                 <h2>Solicitar sala</h2>
             </DIV>
             <%@include file="/WEB-INF/templates/modulos/solicitar-sala.jspf" %>                          
+           
 
 
-
-        </div>
-        <%}%>
-        <%if (posibleUsuario.equals("Administrador")) {%>
+        </div> 
+            </c:if>
+            
+            <c:if test="${log.tipoUsuario == 'Administrador'}">
         <div class="box">
             <%-- informacion de administradoes gestionar conciertos --%>
             <div class="row centrar-contenido">
@@ -75,8 +75,7 @@
             
             <%@include file="/WEB-INF/templates/modulos/gestion-usuarios.jspf" %>  
         </div>
-        <%}%>
-        <%}%>
+            </c:if>
     </body>
     <%@include file="/WEB-INF/templates/footer.jspf" %>
 </html>

@@ -16,6 +16,7 @@
         </thead>
         <tbody>
             <c:forEach var="u" items="${usuarios}">
+                
                 <tr>
                     <td>${u.usuario}</td>
                     <td>${u.nombre}</td>
@@ -24,7 +25,8 @@
                     <td>${u.telefono}</td>
                     <td>${u.tipoUsuario}</td>
                     <td>
-                        <a href="${svlURL}/infoUsuario.jsp?borrar=${u.usuario}" class="btn-primary btn" >Borrar</a>
+                        <a href="${svlURL}/borra?usuario-borra=${u.usuario}" class="btn-primary btn" >Borrar</a>
+                        <a href="${svlURL}/edita?usuario-edita=${u.usuario}" class="btn-primary btn" >Editar</a>
                     </td>
                 </tr>
             </c:forEach>

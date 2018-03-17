@@ -5,6 +5,8 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -17,7 +19,7 @@
         -->
         <%@include file="/WEB-INF/templates/estilos.jspf" %>
     </head> 
-     
+
     <%@include file="/WEB-INF/templates/navbar.jspf" %>
     <body>
 
@@ -26,33 +28,39 @@
             <div class=" box col-lg-8 ">
                 <center>
                     <form method="POST">
-                    <fieldset>
-                        <legend>
-                            <h2>Edita Usuario</h2>
-                         
-                        </legend>
-                        
-                        <input hidden type="text" value="${usuario.usuario}" name="usuario" required class="form-control" >
-                        <label>Contraseña: <input type="password" name="pass" value="${usuario.contraseña}" required class="form-control"></label>
-                        <label>Confirme Contraseña: <input type="password" value="${usuario.contraseña}" required name="confirmacion-pass" class="form-control"></label>
-                        
-                                <label>Nombre: <input type="text" value="${usuario.nombre}" name="nombre" required class="form-control"></label>
-                                            
-                                <label>Apellidos: <input type="text" value="${usuario.apellidos}" name="apellidos" required class="form-control"></label>
-                                                  
-                                <label>E-mail: <input type="email" name="email" value="${usuario.correo}" required class="form-control"></label>
-                                                  
-                                <label>Fecha Nacimiento: <input type="date" value="${usuario.fNacimiento}" required name="fecha" class="form-control"></label>
-                                                  
-                                <label>Teléfono: <input type="tel" name="tlfn" value="${usuario.telefono}" required class="form-control"></label>
-                            
-                    </fieldset>
-                   
+                        <fieldset>
+                            <legend>
+                                <h2>Edita Usuario</h2>
+
+                            </legend>
+
+                            <input hidden type="text" value="${usuario.usuario}" name="usuario" required class="form-control" >
+                            <label>Contraseña: <input type="password" name="pass" value="${usuario.contraseña}" required class="form-control"></label>
+                            <label>Confirme Contraseña: <input type="password" value="${usuario.contraseña}" required name="confirmacion-pass" class="form-control"></label>
+
+                            <label>Nombre: <input type="text" value="${usuario.nombre}" name="nombre" required class="form-control"></label>
+
+                            <label>Apellidos: <input type="text" value="${usuario.apellidos}" name="apellidos" required class="form-control"></label>
+
+                            <label>E-mail: <input type="email" name="email" value="${usuario.correo}" required class="form-control"></label>
+
+                            <label>Fecha Nacimiento: <input type="date" value="${usuario.fNacimiento}" required name="fecha" class="form-control"></label>
+
+                            <label>Teléfono: <input type="tel" name="tlfn" value="${usuario.telefono}" required class="form-control"></label>
+                                <c:if test="${log.tipoUsuario == 'Administrador'}">
+                                <label>Tipo Usuario: <select value="${log.tipoUsuario}" name="tipoUsuario" class="form-control">
+                                        <option value="Registrado">Registrado</option>
+                                        <option value="Artista">Artista</option>
+                                        <option value="Administrador">Administrador</option>
+                                    </select></label>
+                                </c:if>
+                        </fieldset>
+
                         <input type="submit" name="altaUsuario" value="Guardar" class="btn btn-primary">
                         <input type="reset" name="reset" value="Reestablecer" class="btn">
-                    
-                </form>
-            </center>
+
+                    </form>
+                </center>
             </div>
         </div>
 

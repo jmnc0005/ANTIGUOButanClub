@@ -87,13 +87,7 @@ public class gestionUsuario extends HttpServlet {
         String action = (request.getPathInfo() != null ? request.getPathInfo() : "");
 
         switch (action) {
-            case "/logOut": {
-                //Erase session data
-                request.getSession().invalidate();
-                //Redirect user to index page
-                rd = request.getRequestDispatcher(srvViewPath + "/Acceso.jsp");
-                break;
-            }
+            
             case "/edita": {
                 String usuarioEdita = request.getParameter("usuario-edita");
                 Usuario usu = busca(usuarioEdita);
@@ -166,11 +160,13 @@ public class gestionUsuario extends HttpServlet {
             case "/edita": {
                 Usuario usu = new Usuario();
                 if (validaUsuario(request, usu)) {
+                    usu.setTipoUsuario(request.getParameter("tipoUsuario"));
                     guarda(usu);
                     rd = request.getRequestDispatcher(srvViewPath + "/infoUsuario.jsp");
                     break;
                 }
             }
+           
             case "/RegistroUsuario": {
                 Usuario usu = new Usuario();
                 if (validaUsuario(request, usu)) {

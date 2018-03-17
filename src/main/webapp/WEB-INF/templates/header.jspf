@@ -3,7 +3,6 @@
 
 <header>
 
-    <%@include file="tipoUsuario.jspf" %>
     <div class="hero">
         <div class="contenido-header">
             <nav class="redes-sociales row justify-content-center">

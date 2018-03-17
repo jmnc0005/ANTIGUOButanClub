@@ -9,7 +9,6 @@
 <!DOCTYPE html>
 <html>
 
-    <%@include file="/WEB-INF/templates/tipoUsuario.jspf" %>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">         
         <title></title>
@@ -28,10 +27,13 @@
         <div class="box">
 
             <%-- saludo --%>
-            <div class="row float-right"><a class="btn btn-primary" href="${svlURL}/logOut">Cerrar sesión</a></div>
-            <div class="row centrar-contenido">
+            <div class="row float-right">
+                <a class="btn btn-primary separacion-derecha" href="${svlURL}/edita?usuario-edita=${log.usuario}"> Editar perfil</a>
+                <a class="btn btn-primary" href="<c:url value="/logOut"/>"> Cerrar sesión</a>
+            </div>
+            <div class="row">
 
-                <h1> Bienvenido ${log.usuario}.
+                <h1> Bienvenido ${log.nombre}.
                     <br>
                 </h1>
 

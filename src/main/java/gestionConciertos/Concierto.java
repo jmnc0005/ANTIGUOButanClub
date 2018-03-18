@@ -5,7 +5,6 @@
  */
 package gestionConciertos;
 
-import java.util.Date;
 
 /**
  *
@@ -13,8 +12,8 @@ import java.util.Date;
  */
 public class Concierto {
     private String nombreArtista;
-    private int hora;
-    private Date fecha;
+    private String hora;
+    private String fecha;
     private float precio;
     private String tipoMusica;
     private String imagen;
@@ -31,11 +30,11 @@ public class Concierto {
         this.tipoMusica = tipoMusica;
     }
 
-    public String getTipoMuaica() {
+    public String getTipoMusica() {
         return tipoMusica;
     }
     
-    public Concierto(String _nombreArtista,int _hora,Date _fecha,float _precio,String _tipoMusica,String _imagen){
+    public Concierto(String _nombreArtista,String _hora,String _fecha,float _precio,String _tipoMusica,String _imagen){
         nombreArtista=_nombreArtista;
         hora=_hora;
         fecha=_fecha;
@@ -44,15 +43,15 @@ public class Concierto {
         imagen=_imagen;
     }
 
-    public String getTitulo() {
+    public String getNombreArtista() {
         return nombreArtista;
     }
 
-    public int getHora() {
+    public String getHora() {
         return hora;
     }
 
-    public Date getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
@@ -60,15 +59,15 @@ public class Concierto {
         return precio;
     }
 
-    public void setTitulo(String _nombreArtista) {
+    public void setNombreArtista(String _nombreArtista) {
         nombreArtista = _nombreArtista;
     }
 
-    public void setHora(int _hora) {
+    public void setHora(String _hora) {
         hora = _hora;
     }
 
-    public void setFecha(Date _fecha) {
+    public void setFecha(String _fecha) {
         fecha = _fecha;
     }
 

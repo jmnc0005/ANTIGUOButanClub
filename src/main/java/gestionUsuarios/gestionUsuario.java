@@ -31,7 +31,7 @@ import javax.servlet.http.HttpServletResponse;
 public class gestionUsuario extends HttpServlet {
 
     List<Usuario> usuarios;
-    String svlURL, borrar;
+    String svlURL;
     final String srvViewPath = "/WEB-INF/usuarios";
 
     /**
@@ -46,7 +46,7 @@ public class gestionUsuario extends HttpServlet {
     @Override
     public void init(ServletConfig servletConfig) throws ServletException {
         super.init(servletConfig);
-        borrar = " ";
+     
 
         svlURL = servletConfig.getServletContext().getContextPath() + "/usuarios";
 

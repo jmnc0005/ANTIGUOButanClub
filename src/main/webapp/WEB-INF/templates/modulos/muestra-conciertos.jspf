@@ -1,19 +1,23 @@
 <%-- any content can be specified here e.g.: --%>
 <%@ page pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div class="row justify-content-center">
+ 
+    <c:forEach var="c" items="${conciertos}">
     <div class=" concierto col-md-4" >
         <div class="">
-            <img src="imagenes/conciertos/concierto1.jpg" width="100%">
+            <img src="imagenes/conciertos/${c.imagen}" width="100%">
         </div>
         <div class=" centrar-contenido info-concierto">
             <div>
 
-                <p>La banda del Recreo</p>
+                <p>${c.nombreArtista}</p>
                 <br>
-                Precio: 10.00€
+                Precio: ${c.precio}€
                 <br>
-                Día: 22/03/2018  <br>  Hora:21:00
+                Día: ${c.fecha}  <br>  Hora:${c.hora}
                 <br>
+                Género: ${c.tipoMusica}
                 <form action="comprar-entrada.jsp" method="post">
                     <input type="text" name="concierto" hidden value="concierto1">
                     <input class="btn btn-primary" type="submit" name="compra" value="Comprar Entrada">
@@ -22,44 +26,6 @@
             </div>
         </div>
     </div>
-    <div class=" concierto col-md-4" >
-        <div class="">
-            <img src="imagenes/conciertos/concierto2.jpg" width="100%">
-        </div>
-        <div class=" centrar-contenido info-concierto ">
-            <div class="justify-content-center">
-
-                <p>Cantando hasta la muerte</p>
-                <br>Precio: 12.00€
-                <br>
-                Día: 01/07/2018 <br>   Hora:12:00
-                <br>
-                <form method="post">
-                    <input type="text" name="concierto" hidden value="concierto2">
-                    <input class="btn btn-primary" type="submit" name="compra" value="Comprar Entrada">
-                </form>
-
-            </div>
-        </div>
-    </div>
-    <div class=" concierto col-md-4" >
-        <div class="">
-            <img src="imagenes/conciertos/concierto3.jpg" width="100%">
-        </div>
-        <div class=" centrar-contenido info-concierto">
-            <div>
-
-                <p>Ecos de un sonido</p>
-                <br>Precio: 8.00€
-                <br>
-                Día: 20/04/2018  <br>  Hora:21:00
-                <br>
-                <form method="post">
-                    <input type="text" name="concierto" hidden value="concierto3">
-                    <input class="btn btn-primary" type="submit" name="compra" value="Comprar Entrada">
-                </form>
-
-            </div>
-        </div>
-    </div>
+    </c:forEach>
+    
 </div>

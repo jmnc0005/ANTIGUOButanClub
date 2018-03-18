@@ -24,6 +24,7 @@
 
     <%@include file="/WEB-INF/templates/navbar.jspf" %>
     <body>
+        
         <div class="box">
 
             <%-- saludo --%>

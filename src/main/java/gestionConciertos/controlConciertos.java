@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -25,6 +26,8 @@ import javax.servlet.http.HttpServletResponse;
 public class controlConciertos extends HttpServlet {
 
     private List<Concierto> conciertos;
+    String svlURL;
+    final String srvViewPath = "/WEB-INF/conciertos";
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -35,22 +38,25 @@ public class controlConciertos extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    public void init() throws ServletException{
-        super.init();
+    public void init(ServletConfig servletConfig) throws ServletException{
+        super.init(servletConfig);
+        svlURL = servletConfig.getServletContext().getContextPath() + "/conciertos";
+        
+        
+        
         conciertos=new ArrayList<>();
-        conciertos.add(new Concierto("Blunk", 2100, new Date(2018,7,4), 10,"Rock","concierto1.jpg"));        
-        conciertos.add(new Concierto("Mesu", 2400, new Date(2018,4,10), 15,"Indie","concierto2.jpg"));
-        conciertos.add(new Concierto("50penny", 900, new Date(2018,6,4), 5,"Rap","concierto3.jpg"));
+        conciertos.add(new Concierto("Blunk", "21:00", "2018-7-4", 10,"Rock","concierto1.jpg"));        
+        conciertos.add(new Concierto("Mesu", "24:00", "2018-4-10", 15,"Indie","concierto2.jpg"));
+        conciertos.add(new Concierto("50penny","9:00", "2018-6-4", 5,"Rap","concierto3.jpg"));
     
        
     }
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-          
-        }
+         request.setAttribute("svlURL", svlURL);
+
+        request.setAttribute("conciertos", conciertos);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -65,15 +71,18 @@ public class controlConciertos extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        processRequest(request, response);
         RequestDispatcher rd;
         String action = (request.getPathInfo() != null ? request.getPathInfo() : "");
         switch(action){
             default:
-                rd=request.getRequestDispatcher("/WEB-INF/conciertos/conciertos.jsp");
-                break;
+                rd=request.getRequestDispatcher(srvViewPath+"/conciertos.jsp");
+                rd.forward(request, response);
+                break;    
+          
         }
-        processRequest(request, response);
-        rd.forward(request, response);
+        
     }
 
     /**

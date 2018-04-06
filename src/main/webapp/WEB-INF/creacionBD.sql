@@ -1,0 +1,75 @@
+/* 
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+/**
+ * Author:  Pedro Luis
+ * Created: 04-abr-2018
+ */
+/*
+    ELIMINAMOS LAS TABLAS ANTERIORES
+*/
+DROP TABLE  Usuarios;
+DROP TABLE Conciertos;
+DROP TABLE Entradas;
+
+/*
+    CREAMOS LAS TABLAS
+*/
+
+CREATE TABLE Usuarios (
+    usuario VARCHAR(25) NOT NULL PRIMARY KEY,
+    pass VARCHAR(30),
+    nombre VARCHAR(30),
+    apellidos VARCHAR(50),
+    correo VARCHAR(100),
+    fNac DATE,
+    tlfn INTEGER,
+    tipoUsuario VARCHAR(20)   
+);
+
+CREATE TABLE Conciertos(
+    id INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1) PRIMARY KEY,
+    imagen VARCHAR(20),
+    nombre VARCHAR(50),
+    artista VARCHAR(50),
+    precio DECIMAL(5,2),
+    fecha DATE,
+    hora TIME,
+    genero VARCHAR(20)
+);
+
+CREATE TABLE Entradas(
+    id INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),
+    usuario VARCHAR(25),
+    concierto INTEGER,
+    cantidad INTEGER
+    
+);
+
+/*
+datos de prueba para usuarios
+*/
+INSERT INTO Usuarios VALUES 
+('juan1', 'juan', 'juan', 'garcia', 'juan@correo.es','1985-05-21' ,953693625 , 'Registrado' );
+INSERT INTO Usuarios VALUES 
+('ana1', 'ana', 'ana', 'Martinez', 'ana@correo.es','1972-07-12' ,953698525 , 'RArtista' );
+INSERT INTO Usuarios VALUES 
+('SH', 'sh', 'Stephen', 'Hawkings', 'sh@butan.es','1942-01-08' ,953665412 , 'Administrador' );
+
+
+/*
+datos de prueba conciertos
+*/
+INSERT INTO Conciertos (imagen,nombre,artista,precio,fecha,hora,genero) VALUES 
+('concierto1.jpg','Blunk de gira','blunk',10.0,'2018-05-22','21:30:00 ','Rock');
+INSERT INTO Conciertos (imagen,nombre,artista,precio,fecha,hora,genero) VALUES
+('concierto2.jpg','Meus-Eum','meus',15.0,'2018-08-01','23:00:00','Indie');
+INSERT INTO Conciertos (imagen,nombre,artista,precio,fecha,hora,genero) VALUES 
+('concierto3.jpg','The Bank','50penny',8.0,'2018-10-15','10:30:00','Rap');
+
+/*
+datos prueba entradas
+*/
+INSERT INTO Entradas (usuario,concierto,cantidad) VALUES ('juan1',1,10);

@@ -31,7 +31,6 @@ import javax.naming.NamingException;
  */
 public class UsuarioDAOjdbc implements UsuarioDAO {
 
-    private static final String dbTable = "Cliente";
     private static final String connPoolName = "java:comp/env/jdbc/ButanClub";  //Tomcat
 
     private static final String SQL_BUSCAUSU = "SELECT * FROM Usuarios where usuario=?";

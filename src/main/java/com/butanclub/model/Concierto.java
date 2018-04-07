@@ -12,47 +12,44 @@ import java.util.Date;
  * @author Pedro Luis
  */
 public class Concierto {
-    private String nombreArtista;
-    private int hora;
-    private Date fecha;
+    private int id;
+    private String nombre;
+    private String artista;
+    private String hora;
+    private String fecha;
     private float precio;
-    private String tipoMusica;
+    private String genero;
     private String imagen;
 
-    public void setImagen(String imagen) {
-        this.imagen = imagen;
-    }
-
-    public String getImagen() {
-        return imagen;
-    }
-
-    public void setTipoMusica(String tipoMusica) {
-        this.tipoMusica = tipoMusica;
-    }
-
-    public String getTipoMuaica() {
-        return tipoMusica;
-    }
+   
     
-    public Concierto(String _nombreArtista,int _hora,Date _fecha,float _precio,String _tipoMusica,String _imagen){
-        nombreArtista=_nombreArtista;
+    public Concierto(String _imagen, String _nombre, String _artista, float _precio, String _fecha, String _hora, String _genero){
+        nombre=_nombre;
+        artista=_artista;
         hora=_hora;
         fecha=_fecha;
         precio=_precio;
-        tipoMusica=_tipoMusica;
+        genero=_genero;
         imagen=_imagen;
     }
 
-    public String getTitulo() {
-        return nombreArtista;
+    public int getId() {
+        return id;
     }
 
-    public int getHora() {
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getArtista() {
+        return artista;
+    }
+
+    public String getHora() {
         return hora;
     }
 
-    public Date getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
@@ -60,21 +57,46 @@ public class Concierto {
         return precio;
     }
 
-    public void setTitulo(String _nombreArtista) {
-        nombreArtista = _nombreArtista;
+    public String getGenero() {
+        return genero;
     }
 
-    public void setHora(int _hora) {
-        hora = _hora;
+    public String getImagen() {
+        return imagen;
     }
 
-    public void setFecha(Date _fecha) {
-        fecha = _fecha;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public void setPrecio(float _precio) {
-        precio = _precio;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
+
+    public void setArtista(String artista) {
+        this.artista = artista;
+    }
+
+    public void setHora(String hora) {
+        this.hora = hora;
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
+    }
+
+    public void setPrecio(float precio) {
+        this.precio = precio;
+    }
+
+    public void setGenero(String genero) {
+        this.genero = genero;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
+
     
     
 }

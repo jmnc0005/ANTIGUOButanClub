@@ -2,6 +2,7 @@
 <%@ page pageEncoding="UTF-8" %>
 <div class="row justify-content-center">
     <form name="solicitar-sala" >
+        <label>Nombre concierto: <input type="text" name="concierto" class="form-control"></label>
         <label>Nombre artista: <input type="text" name="artista" class="form-control"></label>
         <label>Hora: <input type="time" value="now" name="hora" class="form-control"> </label>
         <label>Día: <input type="date" name="dia" class="form-control"></label>
@@ -14,7 +15,8 @@
                 <option value="rap">Rap</option>
                 <option value="Otro">Otro</option>
             </select>
-        </label>  
+        </label> 
+        <label>Nombre de la imagen: <input type="text" name="imagen" class="form-control"></label>
         <input class="btn btn-primary" type="submit" name="solicitar" value="Solicitar">
     </form>
 </div>

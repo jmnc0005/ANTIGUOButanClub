@@ -5,6 +5,8 @@
  */
 package com.butanclub;
 
+import com.butanclub.dao.ConciertoDAO;
+import com.butanclub.jdbc.ConciertoDAOjdbc;
 import com.butanclub.model.Concierto;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -12,6 +14,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -23,9 +26,11 @@ import javax.servlet.http.HttpServletResponse;
  * @author Pedro Luis
  */
 @WebServlet(name = "controlConciertos", urlPatterns = {"/conciertos/*"})
-public class controlConciertos extends HttpServlet {
+public class ConciertoController extends HttpServlet {
 
-    private List<Concierto> conciertos;
+   private ConciertoDAO conciertos;
+   String svlURL;
+    final String srvViewPath = "/WEB-INF/conciertos";
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -36,22 +41,22 @@ public class controlConciertos extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    public void init() throws ServletException{
-        super.init();
-        conciertos=new ArrayList<>();
-        conciertos.add(new Concierto("Blunk", 2100, new Date(2018,7,4), 10,"Rock","concierto1.jpg"));        
-        conciertos.add(new Concierto("Mesu", 2400, new Date(2018,4,10), 15,"Indie","concierto2.jpg"));
-        conciertos.add(new Concierto("50penny", 900, new Date(2018,6,4), 5,"Rap","concierto3.jpg"));
+    public void init(ServletConfig servletConfig) throws ServletException{
+        super.init(servletConfig);
+        
+           svlURL = servletConfig.getServletContext().getContextPath() + "/conciertos";
+           
+           conciertos = (ConciertoDAO) new ConciertoDAOjdbc();
     
        
     }
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-          
-        }
+        response.setContentType("text/html");
+        request.setAttribute("svlURL", svlURL);
+        request.setCharacterEncoding("UTF-8");
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

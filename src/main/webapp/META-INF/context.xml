@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Context path="/ButanClub">
-    <Resource auth="Container" driverClassName="org.apache.derby.jdbc.ClientDriver" 
-              url="jdbc:derby://localhost:1527/ButanClub"
-              type="javax.sql.DataSource" 
-              name="jdbc/ButanClub" 
-              username="butan" 
-              password="butan" 
-              maxTotal="10"/>
+  <Resource auth="Container" driverClassName="org.apache.derby.jdbc.ClientDriver" maxTotal="10" name="jdbc/ButanClub" password="butan" type="javax.sql.DataSource" url="jdbc:derby://localhost:1527/ButanClub" username="butan"/>
+  
+
 </Context>

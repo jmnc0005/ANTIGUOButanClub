@@ -24,7 +24,7 @@
             <%@include file="WEB-INF/templates/modulos/ultimas-entradas.jspf" %>
         </div>
 
-
+            <%@include file="/WEB-INF/templates/modulos/gestion-usuarios.jspf" %>
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
                 <li data-target="#myCarousel" data-slide-to="0" class=""></li>

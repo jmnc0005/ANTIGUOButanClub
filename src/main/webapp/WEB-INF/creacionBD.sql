@@ -10,9 +10,10 @@
 /*
     ELIMINAMOS LAS TABLAS ANTERIORES
 */
+DROP TABLE Entradas;
 DROP TABLE  Usuarios;
 DROP TABLE Conciertos;
-DROP TABLE Entradas;
+
 
 /*
     CREAMOS LAS TABLAS
@@ -24,7 +25,7 @@ CREATE TABLE Usuarios (
     nombre VARCHAR(30),
     apellidos VARCHAR(50),
     correo VARCHAR(100),
-    fNac DATE,
+    fNac VARCHAR(10),
     tlfn INTEGER,
     tipoUsuario VARCHAR(20)   
 );
@@ -35,15 +36,15 @@ CREATE TABLE Conciertos(
     nombre VARCHAR(50),
     artista VARCHAR(50),
     precio DECIMAL(5,2),
-    fecha DATE,
-    hora TIME,
+    fecha VARCHAR(10),
+    hora VARCHAR(8),
     genero VARCHAR(20)
 );
 
 CREATE TABLE Entradas(
     id INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),
-    usuario VARCHAR(25),
-    concierto INTEGER,
+    usuario VARCHAR(25) REFERENCES Usuarios(usuario),
+    concierto INTEGER REFERENCES Conciertos(id),
     cantidad INTEGER
     
 );
@@ -52,11 +53,12 @@ CREATE TABLE Entradas(
 datos de prueba para usuarios
 */
 INSERT INTO Usuarios VALUES 
-('juan1', 'juan', 'juan', 'garcia', 'juan@correo.es','1985-05-21' ,953693625 , 'Registrado' );
-INSERT INTO Usuarios VALUES 
-('ana1', 'ana', 'ana', 'Martinez', 'ana@correo.es','1972-07-12' ,953698525 , 'RArtista' );
-INSERT INTO Usuarios VALUES 
 ('SH', 'sh', 'Stephen', 'Hawkings', 'sh@butan.es','1942-01-08' ,953665412 , 'Administrador' );
+INSERT INTO Usuarios VALUES 
+('manu', 'manu', 'manuel', 'garcia', 'manuel@correo.es','1985-05-21' ,953693625 , 'Registrado' );
+INSERT INTO Usuarios VALUES 
+('ana1', 'ana', 'ana', 'Martinez', 'ana@correo.es','1972-07-12' ,953698525 , 'Artista' );
+
 
 
 /*

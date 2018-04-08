@@ -28,9 +28,10 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "controlConciertos", urlPatterns = {"/conciertos/*"})
 public class ConciertoController extends HttpServlet {
 
-   private ConciertoDAO conciertos;
-   String svlURL;
+    private ConciertoDAO conciertos;
+    String svlURL;
     final String srvViewPath = "/WEB-INF/conciertos";
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -41,22 +42,22 @@ public class ConciertoController extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    public void init(ServletConfig servletConfig) throws ServletException{
+    public void init(ServletConfig servletConfig) throws ServletException {
         super.init(servletConfig);
-        
-           svlURL = servletConfig.getServletContext().getContextPath() + "/conciertos";
-           
-           conciertos = (ConciertoDAO) new ConciertoDAOjdbc();
-    
-       
+
+        svlURL = servletConfig.getServletContext().getContextPath() + "/conciertos";
+
+        conciertos = (ConciertoDAO) new ConciertoDAOjdbc();
+
     }
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         response.setContentType("text/html");
         request.setAttribute("svlURL", svlURL);
         request.setCharacterEncoding("UTF-8");
-        
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -71,14 +72,24 @@ public class ConciertoController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        processRequest(request, response);
         RequestDispatcher rd;
         String action = (request.getPathInfo() != null ? request.getPathInfo() : "");
-        switch(action){
+        switch (action) {
+            case "/listado": {
+                List<Concierto> lc = conciertos.buscaTodos();
+                request.getSession().setAttribute("listadoConciertos", lc);
+                response.sendRedirect("/ButanClub/usuarios/respuestaConciertos");
+                return;
+            }
+
             default:
-                rd=request.getRequestDispatcher("/WEB-INF/conciertos/conciertos.jsp");
+                List<Concierto> lc = conciertos.buscaTodos();
+                request.setAttribute("listadoConciertos", lc);
+                rd = request.getRequestDispatcher(srvViewPath + "/conciertos.jsp");
                 break;
         }
-        processRequest(request, response);
+
         rd.forward(request, response);
     }
 

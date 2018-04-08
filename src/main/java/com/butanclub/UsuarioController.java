@@ -26,6 +26,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.butanclub.ConciertoController;
+
 /**
  *
  * @author Pedro Luis
@@ -107,16 +109,26 @@ public class UsuarioController extends HttpServlet {
                 rd = request.getRequestDispatcher(srvViewPath + "/RegistroUsuario.jsp");
                 break;
             }
-            default:
+            case "/borraconcierto": {
+
+                response.sendRedirect("/ButanClub/conciertos");
+                return;
+//request.getRequestDispatcher("ConciertoController").forward(request, response);
+            }
+            case "/respuestaConciertos":
                 if (request.getSession().getAttribute("log") != null) {
                     List<Usuario> lu = usuarios.buscaTodos();
                     request.setAttribute("listadoUsuarios", lu);
+                    //response.sendRedirect(svlURL + "infoUsuario.jsp");
+                    //return;
                     rd = request.getRequestDispatcher(srvViewPath + "/infoUsuario.jsp");
-
                 } else {
                     rd = request.getRequestDispatcher(srvViewPath + "/Acceso.jsp");
                 }
                 break;
+            default:
+                response.sendRedirect("/ButanClub/conciertos/listado");
+                return;
         }
 
         rd.forward(request, response);
@@ -138,7 +150,7 @@ public class UsuarioController extends HttpServlet {
 
         String action = (request.getPathInfo() != null ? request.getPathInfo() : "");
         switch (action) {
-            case "": {
+            case "/respuestaConciertos": {
                 Usuario usu = usuarios.buscaUsuario(request.getParameter("usuario"));
 
                 if (usu == null) {

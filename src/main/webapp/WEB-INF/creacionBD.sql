@@ -1,4 +1,4 @@
-/* 
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -27,7 +27,7 @@ CREATE TABLE Usuarios (
     correo VARCHAR(100),
     fNac VARCHAR(10),
     tlfn INTEGER,
-    tipoUsuario VARCHAR(20)   
+    tipoUsuario VARCHAR(20)
 );
 
 CREATE TABLE Conciertos(
@@ -46,17 +46,17 @@ CREATE TABLE Entradas(
     usuario VARCHAR(25) REFERENCES Usuarios(usuario),
     concierto INTEGER REFERENCES Conciertos(id),
     cantidad INTEGER
-    
+
 );
 
 /*
 datos de prueba para usuarios
 */
-INSERT INTO Usuarios VALUES 
+INSERT INTO Usuarios VALUES
 ('SH', 'sh', 'Stephen', 'Hawkings', 'sh@butan.es','1942-01-08' ,953665412 , 'Administrador' );
-INSERT INTO Usuarios VALUES 
+INSERT INTO Usuarios VALUES
 ('manu', 'manu', 'manuel', 'garcia', 'manuel@correo.es','1985-05-21' ,953693625 , 'Registrado' );
-INSERT INTO Usuarios VALUES 
+INSERT INTO Usuarios VALUES
 ('ana1', 'ana', 'ana', 'Martinez', 'ana@correo.es','1972-07-12' ,953698525 , 'Artista' );
 
 
@@ -64,14 +64,14 @@ INSERT INTO Usuarios VALUES
 /*
 datos de prueba conciertos
 */
-INSERT INTO Conciertos (imagen,nombre,artista,precio,fecha,hora,genero) VALUES 
-('concierto1.jpg','Blunk de gira','blunk',10.0,'2018-05-22','21:30:00 ','Rock');
 INSERT INTO Conciertos (imagen,nombre,artista,precio,fecha,hora,genero) VALUES
-('concierto2.jpg','Meus-Eum','meus',15.0,'2018-08-01','23:00:00','Indie');
-INSERT INTO Conciertos (imagen,nombre,artista,precio,fecha,hora,genero) VALUES 
-('concierto3.jpg','The Bank','50penny',8.0,'2018-10-15','10:30:00','Rap');
+('concierto1.jpg','Blunk de gira','blunk',10.0,'2018-05-22','21:30','Rock');
+INSERT INTO Conciertos (imagen,nombre,artista,precio,fecha,hora,genero) VALUES
+('concierto2.jpg','Meus-Eum','meus',15.0,'2018-08-01','23:00','Indie');
+INSERT INTO Conciertos (imagen,nombre,artista,precio,fecha,hora,genero) VALUES
+('concierto3.jpg','The Bank','50penny',8.0,'2018-10-15','10:30','Rap');
 
 /*
 datos prueba entradas
 */
-INSERT INTO Entradas (usuario,concierto,cantidad) VALUES ('juan1',1,10);
+INSERT INTO Entradas (usuario,concierto,cantidad) VALUES ('manu',1,10);

@@ -2,8 +2,10 @@
 <%@ page pageEncoding="UTF-8" %>
 <h2>Datos de Concierto </h2>
 
-<p>La banda del Recreo</p>
-Precio: 10.00€
-                <br>
-Día: 22/03/2018  <br>  Hora:21:00
+<p><h3>${conciertoCompra.nombre} </h3>
+<br>
+${conciertoCompra.artista}</p>
+Precio: ${conciertoCompra.precio}€
+<br>
+Día: ${conciertoCompra.fecha}  <br>  Hora:${conciertoCompra.hora}
 <br>

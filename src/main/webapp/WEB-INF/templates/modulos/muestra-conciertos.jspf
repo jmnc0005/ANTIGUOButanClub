@@ -9,15 +9,16 @@
             </div>
             <div class=" centrar-contenido info-concierto">
                 <div>
-                    <h3><p>${co.nombre}</p></h3>
+
+                    <h3><p>${co.nombre} ${co.id}</p></h3>
                     <p>${co.artista}</p>
                     <br>
                     Precio: ${co.precio}€
                     <br>
                     Día: ${co.fecha}  <br>  Hora:${co.hora}
                     <br>
-                    <form action="comprar-entrada.jsp" method="post">
-                        <input type="text" name="concierto" hidden value="concierto1">
+                    <form action="${svlURL}/comprarEntrada" method="post">
+                        <input type="text" name="idconcierto" hidden value="${co.id}">
                         <input class="btn btn-primary" type="submit" name="compra" value="Comprar Entrada">
                     </form>
 

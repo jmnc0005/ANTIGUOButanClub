@@ -105,6 +105,19 @@ public class ConciertoController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+        RequestDispatcher rd = null;
+        String action = (request.getPathInfo() != null ? request.getPathInfo() : "");
+        switch (action) {
+            case "/comprarEntrada": {
+                int idconcierto = Integer.parseInt(request.getParameter("idconcierto"));
+                Concierto c = conciertos.buscaConcierto(idconcierto);
+                request.setAttribute("conciertoCompra", c);
+                rd = request.getRequestDispatcher(srvViewPath + "/comprar-entrada.jsp");
+                break;
+            }
+
+        }
+        rd.forward(request, response);
     }
 
     /**

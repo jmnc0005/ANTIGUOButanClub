@@ -12,6 +12,7 @@ import java.util.Date;
  * @author Pedro Luis
  */
 public class Concierto {
+
     private int id;
     private String nombre;
     private String artista;
@@ -21,16 +22,15 @@ public class Concierto {
     private String genero;
     private String imagen;
 
-   
-    
-    public Concierto(String _imagen, String _nombre, String _artista, float _precio, String _fecha, String _hora, String _genero){
-        nombre=_nombre;
-        artista=_artista;
-        hora=_hora;
-        fecha=_fecha;
-        precio=_precio;
-        genero=_genero;
-        imagen=_imagen;
+    public Concierto(int _id, String _imagen, String _nombre, String _artista, float _precio, String _fecha, String _hora, String _genero) {
+        id = _id;
+        nombre = _nombre;
+        artista = _artista;
+        hora = _hora;
+        fecha = _fecha;
+        precio = _precio;
+        genero = _genero;
+        imagen = _imagen;
     }
 
     public int getId() {
@@ -97,6 +97,4 @@ public class Concierto {
         this.imagen = imagen;
     }
 
-    
-    
 }

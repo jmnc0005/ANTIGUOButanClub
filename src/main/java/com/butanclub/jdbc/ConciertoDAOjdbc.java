@@ -7,6 +7,7 @@ package com.butanclub.jdbc;
 
 import com.butanclub.dao.ConciertoDAO;
 import com.butanclub.model.Concierto;
+import com.butanclub.model.Entrada;
 import com.butanclub.model.Usuario;
 import java.sql.Connection;
 import java.sql.PreparedStatement;

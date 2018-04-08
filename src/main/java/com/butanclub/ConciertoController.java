@@ -6,12 +6,12 @@
 package com.butanclub;
 
 import com.butanclub.dao.ConciertoDAO;
+import com.butanclub.dao.EntradaDAO;
 import com.butanclub.jdbc.ConciertoDAOjdbc;
+import com.butanclub.jdbc.EntradaDAOjdbc;
 import com.butanclub.model.Concierto;
+import com.butanclub.model.Entrada;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
@@ -28,6 +28,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "controlConciertos", urlPatterns = {"/conciertos/*"})
 public class ConciertoController extends HttpServlet {
 
+    private EntradaDAO entradas;
     private ConciertoDAO conciertos;
     String svlURL;
     final String srvViewPath = "/WEB-INF/conciertos";
@@ -48,6 +49,7 @@ public class ConciertoController extends HttpServlet {
         svlURL = servletConfig.getServletContext().getContextPath() + "/conciertos";
 
         conciertos = (ConciertoDAO) new ConciertoDAOjdbc();
+        entradas = new EntradaDAOjdbc();
 
     }
 
@@ -60,15 +62,6 @@ public class ConciertoController extends HttpServlet {
 
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -114,6 +107,21 @@ public class ConciertoController extends HttpServlet {
                 request.setAttribute("conciertoCompra", c);
                 rd = request.getRequestDispatcher(srvViewPath + "/comprar-entrada.jsp");
                 break;
+            }
+            case "/ConfirmacionCompra": {
+                String usuario = request.getParameter("usuario-comprador");
+                int idConcierto = Integer.parseInt(request.getParameter("concierto-comprado"));
+                int cantidad = Integer.parseInt(request.getParameter("numero-entradas"));
+
+                Concierto c = conciertos.buscaConcierto(idConcierto);
+                request.setAttribute("conciertoCompra", c);
+
+                Entrada entrada = new Entrada(usuario, idConcierto, cantidad);
+                entradas.crea(entrada);
+                request.setAttribute("entrada", entrada);
+                rd = request.getRequestDispatcher(srvViewPath + "/ConfirmacionCompra.jsp");
+                break;
+
             }
 
         }

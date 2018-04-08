@@ -35,8 +35,9 @@
                 </div>
                 <br>
                 <div class="row centrar-contenido">
-                    <form action="ConfirmacionCompra.jsp" method="post">
-                        <input type="text" name="concierto" hidden value="concierto1">
+                    <form action="${svlURL}/ConfirmacionCompra" method="post">
+                        <input type="text" name="concierto-comprado" hidden value="${conciertoCompra.id}">
+                        <input type="text" name="usuario-comprador" hidden value="${log.usuario}">
                         <label>
                             Numero entradas:
                         </label>

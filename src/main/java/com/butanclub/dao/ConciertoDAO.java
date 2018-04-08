@@ -11,8 +11,8 @@ import com.butanclub.model.Concierto;
  *
  * @author Pedro Luis
  */
-public interface ConciertoDAO extends GenericDAO<Concierto, Integer>{
-    
-   
+public interface ConciertoDAO extends GenericDAO<Concierto, Integer> {
+
     public Concierto buscaConcierto(Integer id);
+
 }

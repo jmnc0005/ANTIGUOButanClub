@@ -1,4 +1,4 @@
-<%-- 
+<%--
     Document   : ConfirmacionCompra
     Created on : 25-feb-2018, 17:35:40
     Author     : Pedro Luis
@@ -8,17 +8,17 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">         
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title></title>
         <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <!--<link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/font-awesome.css">  
+        <link rel="stylesheet" href="css/font-awesome.css">
         -->
-        <%@include file="WEB-INF/templates/estilos.jspf" %>
-    </head> 
-     
-    <%@include file="WEB-INF/templates/navbar.jspf" %>
+        <%@include file="/WEB-INF/templates/estilos.jspf" %>
+    </head>
+
+    <%@include file="/WEB-INF/templates/navbar.jspf" %>
     <body>
 
 
@@ -29,39 +29,39 @@
                 </div>
                 <div class="row centrar-contenido">
                     <div class="col-md-4">
-                        <%@include file="WEB-INF/templates/modulos/datos-usuario.jspf" %>
+                        <%@include file="/WEB-INF/templates/modulos/datos-usuario-entradas.jspf" %>
                     </div>
                     <div class="col-md-4">
-                        <%@include file="WEB-INF/templates/modulos/datos-concierto.jspf" %>
+                        <%@include file="/WEB-INF/templates/modulos/datos-concierto.jspf" %>
                     </div>
 
                 </div>
                 <br>
                 <div class="row centrar-contenido">
-                    Numero de entardas:  <%= request.getParameter("numero-entradas")%>
+                    Numero de entardas:  ${entrada.cantidad}
 
                 </div>
                 <div class="row centrar-contenido">
                     <br>
-                    <h2>Codigos de entradas:</h2>
+                    <h2>Codigo de entradas: ${entrada.id}</h2>
 
                 </div>
-                <div class="row centrar-contenido">
-                    <list>
-                    <ul>
-                        <%for(int i=0; i< Integer.parseInt(request.getParameter("numero-entradas"));i++){%>
-                        <li> <%int a = (int)(Math.random()*999999); 
-                            out.println(a);%> </li>
-                        <%}%>
-                    </ul>
-                    </list>
-                </div>
+                <!-- <div class="row centrar-contenido">
+                     <list>
+                     <ul>
+                <%//for(int i=0; i< Integer.parseInt(request.getParameter("numero-entradas"));i++){%>
+                <li> <%//int a = (int)(Math.random()*999999);
+                    // out.println(a);%> </li>
+                <%//}%>
+            </ul>
+            </list>-->
             </div>
         </div>
     </div>
+</div>
 
 </body>
-<%@include file="WEB-INF/templates/footer.jspf" %>
+<%@include file="/WEB-INF/templates/footer.jspf" %>
 </html>
 
 </html>

@@ -117,15 +117,21 @@ public class UsuarioController extends HttpServlet {
             }
             case "/respuestaConciertos":
                 if (request.getSession().getAttribute("log") != null) {
-                    List<Usuario> lu = usuarios.buscaTodos();
-                    request.setAttribute("listadoUsuarios", lu);
-                    //response.sendRedirect(svlURL + "infoUsuario.jsp");
-                    //return;
-                    rd = request.getRequestDispatcher(srvViewPath + "/infoUsuario.jsp");
+
+                    response.sendRedirect("/ButanClub/conciertos/listadoConciertosUsuario");
+                    return;
+                    //rd = request.getRequestDispatcher(srvViewPath + "/infoUsuario.jsp");
                 } else {
                     rd = request.getRequestDispatcher(srvViewPath + "/Acceso.jsp");
                 }
                 break;
+            case "/respuestaConciertosUsuario": {
+                List<Usuario> lu = usuarios.buscaTodos();
+                request.setAttribute("listadoUsuarios", lu);
+                rd = request.getRequestDispatcher(srvViewPath + "/infoUsuario.jsp");
+
+                break;
+            }
             default:
                 response.sendRedirect("/ButanClub/conciertos/listado");
                 return;
@@ -150,6 +156,14 @@ public class UsuarioController extends HttpServlet {
 
         String action = (request.getPathInfo() != null ? request.getPathInfo() : "");
         switch (action) {
+            case "/respuestaConciertosUsuario": {
+                List<Usuario> lu = usuarios.buscaTodos();
+                request.setAttribute("listadoUsuarios", lu);
+                rd = request.getRequestDispatcher(srvViewPath + "/infoUsuario.jsp");
+                break;
+                //rd = request.getRequestDispatcher(srvViewPath + "/infoUsuario.jsp");
+
+            }
             case "/respuestaConciertos": {
                 Usuario usu = usuarios.buscaUsuario(request.getParameter("usuario"));
 
@@ -161,9 +175,9 @@ public class UsuarioController extends HttpServlet {
                     if (usu.getContraseña().equals(request.getParameter("pass"))) {
 
                         request.getSession().setAttribute("log", usu);
-                        List<Usuario> lu = usuarios.buscaTodos();
-                        request.setAttribute("listadoUsuarios", lu);
-                        rd = request.getRequestDispatcher(srvViewPath + "/infoUsuario.jsp");
+                        response.sendRedirect("/ButanClub/conciertos/listadoConciertosUsuario");
+                        return;
+
                     } else {
                         String msg = "Credenciales incorrectas.";
                         request.setAttribute("msjErrorAlta", msg);

@@ -11,6 +11,7 @@ import com.butanclub.jdbc.ConciertoDAOjdbc;
 import com.butanclub.jdbc.EntradaDAOjdbc;
 import com.butanclub.model.Concierto;
 import com.butanclub.model.Entrada;
+import com.butanclub.model.Usuario;
 import java.io.IOException;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
@@ -71,8 +72,18 @@ public class ConciertoController extends HttpServlet {
         switch (action) {
             case "/listado": {
                 List<Concierto> lc = conciertos.buscaTodos();
+
                 request.getSession().setAttribute("listadoConciertos", lc);
                 response.sendRedirect("/ButanClub/usuarios/respuestaConciertos");
+                return;
+            }
+            case "/listadoConciertosUsuario": {
+
+                Usuario usuario = (Usuario) request.getSession().getAttribute("log");
+                List<Concierto> lc = conciertos.buscaConciertosUsuario(usuario.getUsuario());
+
+                request.getSession().setAttribute("listadoConciertosUsuario", lc);
+                response.sendRedirect("/ButanClub/usuarios/respuestaConciertosUsuario");
                 return;
             }
 

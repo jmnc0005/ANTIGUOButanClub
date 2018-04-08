@@ -35,6 +35,7 @@ public class ConciertoDAOjdbc implements ConciertoDAO {
     private static final String SQL_CREA = "INSERT INTO Conciertos (imagen,nombre,artista,precio,fecha,hora,genero) VALUES (?, ?, ?,?,?,?,? )";
     private static final String SQL_ACTUALIZA = "UPDATE Conciertos set  pass=?, nombre=?, apellidos=?, correo=?, fnac=?, tlfn=?, tipousuario=?WHERE id=?";
     private static final String SQL_BORRA = "DELETE FROM Conciertos WHERE id=?";
+    private static final String SQL_CONCIERTOSUSUARIO = "SELECT * FROM Conciertos WHERE id in (SELECT DISTINCT concierto FROM Entradas WHERE usuario='SH')";
 
     private DataSource ds = null;
 
@@ -164,6 +165,23 @@ public class ConciertoDAOjdbc implements ConciertoDAO {
 
         return actualizado;
 
+    }
+
+    @Override
+    public List<Concierto> buscaConciertosUsuario(String usuario) {
+        List<Concierto> lista = new ArrayList<>();
+        try (Connection conn = ds.getConnection();
+                PreparedStatement stmn = conn.prepareStatement(SQL_CONCIERTOSUSUARIO);) {
+            stmn.setString(1, usuario);
+            ResultSet rs = stmn.executeQuery();
+            while (rs.next()) {
+                lista.add(conciertoMapper(rs));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(UsuarioDAOjdbc.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return lista;
     }
 
 }

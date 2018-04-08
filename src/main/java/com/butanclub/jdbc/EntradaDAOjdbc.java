@@ -104,7 +104,7 @@ public class EntradaDAOjdbc implements EntradaDAO {
     public List<Entrada> buscaTodos(String _usuario) {
         List<Entrada> lista = new ArrayList<>();
         try (Connection conn = ds.getConnection();
-                PreparedStatement stmn = conn.prepareStatement(SQL_BUSCAENTRADASTODAS);) {
+                PreparedStatement stmn = conn.prepareStatement(SQL_BUSCAENTRADASTODAS)) {
             stmn.setString(1, _usuario);
             ResultSet rs = stmn.executeQuery();
 

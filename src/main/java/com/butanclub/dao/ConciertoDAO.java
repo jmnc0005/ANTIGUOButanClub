@@ -6,6 +6,7 @@
 package com.butanclub.dao;
 
 import com.butanclub.model.Concierto;
+import java.util.List;
 
 /**
  *
@@ -15,4 +16,5 @@ public interface ConciertoDAO extends GenericDAO<Concierto, Integer> {
 
     public Concierto buscaConcierto(Integer id);
 
+    public List<Concierto> buscaConciertosUsuario(String usuario);
 }

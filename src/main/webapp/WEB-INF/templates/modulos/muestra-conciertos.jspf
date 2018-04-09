@@ -10,7 +10,7 @@
             <div class=" centrar-contenido info-concierto">
                 <div>
 
-                    <h3><p>${co.nombre} ${co.id}</p></h3>
+                    <h3><p>${co.nombre}</p></h3>
                     <p>${co.artista}</p>
                     <br>
                     Precio: ${co.precio}€

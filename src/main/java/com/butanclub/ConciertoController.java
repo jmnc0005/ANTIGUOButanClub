@@ -52,6 +52,12 @@ public class ConciertoController extends HttpServlet {
         conciertos = (ConciertoDAO) new ConciertoDAOjdbc();
         entradas = new EntradaDAOjdbc();
 
+        List<Concierto> list = conciertos.buscaTodos();
+        getServletContext().setAttribute("listadoConciertos", list);
+
+        List<Concierto> lista = conciertos.buscaProximosConciertos();
+        getServletContext().setAttribute("listadoProximosConciertos", lista);
+
     }
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)

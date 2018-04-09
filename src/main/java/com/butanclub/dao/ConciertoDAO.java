@@ -17,4 +17,6 @@ public interface ConciertoDAO extends GenericDAO<Concierto, Integer> {
     public Concierto buscaConcierto(Integer id);
 
     public List<Concierto> buscaConciertosUsuario(String usuario);
+
+    public List<Concierto> buscaProximosConciertos();
 }

@@ -65,11 +65,15 @@ INSERT INTO Usuarios VALUES
 datos de prueba conciertos
 */
 INSERT INTO Conciertos (imagen,nombre,artista,precio,fecha,hora,genero) VALUES
-('concierto1.jpg','Blunk de gira','blunk',10.0,'2018-05-22','21:30','Rock');
+('concierto1.jpg','Blunk de gira','blunk',10.0,'2018-09-22','21:30','Rock');
 INSERT INTO Conciertos (imagen,nombre,artista,precio,fecha,hora,genero) VALUES
 ('concierto2.jpg','Meus-Eum','meus',15.0,'2018-08-01','23:00','Indie');
 INSERT INTO Conciertos (imagen,nombre,artista,precio,fecha,hora,genero) VALUES
 ('concierto3.jpg','The Bank','50penny',8.0,'2018-10-15','10:30','Rap');
+INSERT INTO Conciertos (imagen,nombre,artista,precio,fecha,hora,genero) VALUES
+('concierto4.jpg','A recuperar','A tu p*ta kara',150.0,'2018-07-07','9:00','Heavy metal');
+INSERT INTO Conciertos (imagen,nombre,artista,precio,fecha,hora,genero) VALUES
+('concierto5.jpg','01 10 11 100 Dale','Chihuahua',0.0,'2018-07-15','10:30','Otro');
 
 /*
 datos prueba entradas

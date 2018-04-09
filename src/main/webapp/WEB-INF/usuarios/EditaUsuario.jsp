@@ -1,4 +1,4 @@
-<%-- 
+<%--
     Document   : EditaUsuario
     Created on : 17-mar-2018, 11:56:37
     Author     : Pedro Luis
@@ -10,15 +10,15 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">         
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title></title>
         <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <!--<link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/font-awesome.css">  
+        <link rel="stylesheet" href="css/font-awesome.css">
         -->
         <%@include file="/WEB-INF/templates/estilos.jspf" %>
-    </head> 
+    </head>
 
     <%@include file="/WEB-INF/templates/navbar.jspf" %>
     <body>
@@ -49,11 +49,27 @@
                             <label>Teléfono: <input type="tel" name="tlfn" value="${usuario.telefono}" required class="form-control"></label>
                                 <c:if test="${log.tipoUsuario == 'Administrador'}">
                                 <label>Tipo Usuario: <select value="${log.tipoUsuario}" name="tipoUsuario" class="form-control">
+
+                                        <option default value="Administrador">Administrador</option>
                                         <option value="Registrado">Registrado</option>
                                         <option value="Artista">Artista</option>
-                                        <option value="Administrador">Administrador</option>
                                     </select></label>
                                 </c:if>
+                                <c:if test="${log.tipoUsuario == 'Artista'}">
+                                <label>Tipo Usuario: <select value="${log.tipoUsuario}" name="tipoUsuario" class="form-control">
+                                        <option default value="Artista">Artista</option>
+                                        <option value="Registrado">Registrado</option>
+
+                                    </select></label>
+                                </c:if>
+                                <c:if test="${log.tipoUsuario == 'Registrado'}">
+                                <label>Tipo Usuario: <select value="${log.tipoUsuario}" name="tipoUsuario" class="form-control">
+
+                                        <option default value="Registrado">Registrado</option>
+
+                                    </select></label>
+                                </c:if>
+
                         </fieldset>
 
                         <input type="submit" name="altaUsuario" value="Guardar" class="btn btn-primary">

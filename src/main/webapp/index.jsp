@@ -2,16 +2,16 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">         
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title></title>
         <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <!--<link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/font-awesome.css">  
+        <link rel="stylesheet" href="css/font-awesome.css">
         -->
         <%@include file="WEB-INF/templates/estilos.jspf" %>
-    </head> 
-     <%@include file="WEB-INF/templates/header.jspf" %>
+    </head>
+    <%@include file="WEB-INF/templates/header.jspf" %>
     <%@include file="WEB-INF/templates/navbar.jspf" %>
     <body>
 
@@ -24,7 +24,7 @@
             <%@include file="WEB-INF/templates/modulos/ultimas-entradas.jspf" %>
         </div>
 
-            <%@include file="/WEB-INF/templates/modulos/gestion-usuarios.jspf" %>
+
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
                 <li data-target="#myCarousel" data-slide-to="0" class=""></li>
@@ -75,11 +75,11 @@
         <div class="box-index">
             <%@include file="WEB-INF/templates/modulos/muestra-conciertos.jspf" %>
         </div>
-        
-        
-        
-        
-        
+
+
+
+
+
         <div class= "index-parallax parallax row justify-content-center">
             <div class="centrar-contenido col-6">
                 <div class="contenido-parallax">

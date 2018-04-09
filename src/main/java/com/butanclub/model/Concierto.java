@@ -33,6 +33,9 @@ public class Concierto {
         imagen = _imagen;
     }
 
+    public Concierto() {
+    }
+
     public int getId() {
         return id;
     }

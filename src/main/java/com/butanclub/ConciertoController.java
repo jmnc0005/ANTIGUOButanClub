@@ -73,7 +73,7 @@ public class ConciertoController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-        RequestDispatcher rd;
+        RequestDispatcher rd = null;
         String action = (request.getPathInfo() != null ? request.getPathInfo() : "");
         switch (action) {
             case "/listado": {
@@ -92,6 +92,16 @@ public class ConciertoController extends HttpServlet {
                 request.getSession().setAttribute("listadoConciertosUsuario", lcu);
                 response.sendRedirect("/ButanClub/usuarios/respuestaConciertosUsuario");
                 return;
+            }
+            case "/solicitarSala": {
+                Concierto c = new Concierto();
+                if (validaConcierto(request, c)) {
+                    conciertos.crea(c);
+                    response.sendRedirect("/ButanClub/usuarios/respuestaConciertosUsuario");
+                    return;
+                }
+
+                break;
             }
 
             default:
@@ -144,6 +154,18 @@ public class ConciertoController extends HttpServlet {
 
         }
         rd.forward(request, response);
+    }
+
+    private boolean validaConcierto(HttpServletRequest request, Concierto c) {
+        c.setNombre(request.getParameter("nombre"));
+        c.setArtista(request.getParameter("artista"));
+        c.setFecha(request.getParameter("fecha"));
+        c.setGenero(request.getParameter("genero"));
+        c.setHora(request.getParameter("hora"));
+
+        c.setPrecio(Integer.parseInt(request.getParameter("precio")));
+
+        return true;
     }
 
     /**

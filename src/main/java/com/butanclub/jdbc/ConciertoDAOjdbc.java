@@ -128,7 +128,7 @@ public class ConciertoDAOjdbc implements ConciertoDAO {
                 Logger.getLogger(ConciertoDAOjdbc.class.getName()).log(Level.SEVERE, ex.getMessage(), ex);
             }
 
-            stmn.setString(1, "conciero" + c.getId() + ".jpg");
+            stmn.setString(1, "concierto9.jpg");
             stmn.setString(2, c.getNombre());
             stmn.setString(3, c.getArtista());
             stmn.setFloat(4, c.getPrecio());

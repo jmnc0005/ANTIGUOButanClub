@@ -80,9 +80,10 @@ public class ConciertoController extends HttpServlet {
             case "/listadoConciertosUsuario": {
 
                 Usuario usuario = (Usuario) request.getSession().getAttribute("log");
-                List<Concierto> lc = conciertos.buscaConciertosUsuario(usuario.getUsuario());
+                String IDUsuario = usuario.getUsuario();
+                List<Concierto> lcu = conciertos.buscaConciertosUsuario(IDUsuario);
 
-                request.getSession().setAttribute("listadoConciertosUsuario", lc);
+                request.getSession().setAttribute("listadoConciertosUsuario", lcu);
                 response.sendRedirect("/ButanClub/usuarios/respuestaConciertosUsuario");
                 return;
             }

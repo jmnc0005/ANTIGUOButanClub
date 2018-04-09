@@ -4,9 +4,6 @@
 <div class="row justify-content-center">
     <c:forEach var="co" items="${listadoConciertosUsuario}">
         <div class=" concierto col-md-4" >
-            <div class="">
-                <img src="imagenes/conciertos/${co.imagen}" width="100%">
-            </div>
             <div class=" centrar-contenido info-concierto">
                 <div>
 
